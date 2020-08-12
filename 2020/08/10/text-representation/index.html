@@ -26,8 +26,10 @@
 <meta property="og:site_name" content="VN_NLP">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Human-dictionary.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/vocab_example.png">
 <meta property="article:published_time" content="2020-08-10T16:45:00.000Z">
-<meta property="article:modified_time" content="2020-08-11T04:44:47.795Z">
+<meta property="article:modified_time" content="2020-08-12T16:40:13.164Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
@@ -180,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2020-08-11 11:44:47" itemprop="dateModified" datetime="2020-08-11T11:44:47+07:00">2020-08-11</time>
+                <time title="Được thay đổi: 2020-08-12 23:40:13" itemprop="dateModified" datetime="2020-08-12T23:40:13+07:00">2020-08-12</time>
               </span>
 
           
@@ -194,7 +196,90 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><h1 id="Tong-quan"><a href="#Tong-quan" class="headerlink" title="Tổng quan"></a>Tổng quan</h1><p><img src="/2020/08/10/text-representation/Overview-of-text-representation.png" alt="Overview"></p>
+        <html><head></head><body><h1 id="Tong-quan"><a href="#Tong-quan" class="headerlink" title="Tổng quan"></a>Tổng quan</h1><p>Mọi mô hình Deep Learning trong NLP đều xử lý đầu vào (inputs) ở dạng số. Nhiệm vụ đầu tiên chính là chuyển ngôn ngữ tự nhiên thành dạng số để xử lý. Bỏ qua bước này là ăn cám. Bức ảnh dưới đây tóm tắt toàn bộ quy trình trong biểu diễn từ ngữ.</p>
+<p><img src="/2020/08/10/text-representation/Overview-of-text-representation.png" alt="Overview"></p>
+<ol>
+<li>Bước 1: Thu thập tập từ điển</li>
+<li>Bước 2: Xử lý tập từ điển</li>
+<li>Bước 3: Quá trình tokenization</li>
+<li>Bước 4: Liên kết các tokens, kết quả của quá trình tokenization, với các ID.</li>
+<li>Bước 5: Biến đổi các ID thành các đầu vào (inputs) cho mô hình NLP xử lý.</li>
+</ol>
+<h1 id="Buoc-1-Thu-thap-tap-tu-dien"><a href="#Buoc-1-Thu-thap-tap-tu-dien" class="headerlink" title="Bước 1: Thu thập tập từ điển"></a>Bước 1: Thu thập tập từ điển</h1><p>Mỗi ngôn ngữ đều có một quyển từ điển kèm theo. Tiếng Anh có từ điển tiếng Anh. Tiếng Việt có từ điển tiếng Việt. Các quyển từ điển tồn tại để giúp mọi người học một thứ tiếng họ chưa biết: đọc, nghe nó; nói, viết nó.</p>
+<p>Máy cũng vậy, nó cần một quyển từ điển để hiểu và sinh được ngôn ngữ của con người.</p>
+<p>Quyển từ điển dành cho máy không giống với quyển từ điển dành cho con người.</p>
+<ol>
+<li>Đây là quyển từ điển dành cho con người:<br><img src="/2020/08/10/text-representation/Human-dictionary.png" alt="Human Dictionary"></li>
+</ol>
+<p>Con người có thể nhanh chóng hiểu các khái niệm được dịch sang. Khả năng hiểu ngôn ngữ của chúng ta rất tốt. Chỉ với một ít thông tin, một ít ví dụ, chúng ta đã có thể dễ dàng hiểu được từ “bank” một cách bản chất và có thể sử dụng nó cho nhiều mục đích nghe, nói, đọc, viết.</p>
+<ol start="2">
+<li>Đây là quyển từ điển dành cho máy:<table>
+<thead>
+<tr>
+<th>Tập dữ liệu</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/West_Bank_Story">https://en.wikipedia.org/wiki/West_Bank_Story</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bank_robbery">https://en.wikipedia.org/wiki/Bank_robbery</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.fantasticfiction.com/g/kenneth-grahame/river-bank.htm">https://www.fantasticfiction.com/g/kenneth-grahame/river-bank.htm</a></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p>Cũng vẫn là từ “bank”, máy lại có cách hiểu khác chúng ta như một vài VD sau:</p>
+<ul>
+<li><p>Máy xem từ “bank” hay nằm cạnh từ nào. VD: bank account, river bank, … là hay đi với nhau; còn fiery bank, dragon bank, … hiếm khi đi với nhau)</p>
+</li>
+<li><p>Máy xem từ “bank” được liên kết ngữ cảnh nào. VD: </p>
+<ul>
+<li>“bank” trong bank account hay đi với những con người lịch thiệp, các giao dịch tiền tệ, kế toán, tài chính, …</li>
+<li>“bank” trong river bank hay đi với thiên nhiên, môi trường, các con vật, … Như vậy câu nào mà có thiên nhiên, môi trường, các con vật thì khó có thể là “bank” trong “bank account”</li>
+</ul>
+</li>
+</ul>
+<p>Để máy có thể hiểu được như trên, nó cần một tập dữ liệu đa dạng mà chứa từ bank. Nó sẽ đọc rất nhiều dữ liệu và rút ra được một mối liên hệ nào đó giữa từ bank và các từ xung quanh nó. Nhưng “bank” thực chất là gì, tôi tin máy không hiểu được. Máy chỉ sao chép lại hành vi sử dụng từ “bank” của con người.</p>
+<h1 id="Buoc-2-Tien-xu-ly-tap-tu-dien"><a href="#Buoc-2-Tien-xu-ly-tap-tu-dien" class="headerlink" title="Bước 2: Tiền xử lý tập từ điển"></a>Bước 2: Tiền xử lý tập từ điển</h1><h1 id="Buoc-3-Tokenization"><a href="#Buoc-3-Tokenization" class="headerlink" title="Bước 3: Tokenization"></a>Bước 3: Tokenization</h1><h1 id="Buoc-4-Token-Id-Mapping"><a href="#Buoc-4-Token-Id-Mapping" class="headerlink" title="Bước 4: Token-Id Mapping"></a>Bước 4: Token-Id Mapping</h1><p>Các tokens được sinh ra ở bước 3 sẽ được liên kết với các con số (Ids) thông qua hai cách:</p>
+<ul>
+<li>Tập từ điển (Vocabulary Lookup)</li>
+<li>Bảng băm (Feature Hashing)</li>
+</ul>
+<p>Ids rất cần thiết để biến các tokens thành dạng dữ liệu phù hợp với mô hình. Phần này tôi sẽ nói sau ở bước 5.</p>
+<ol>
+<li>Tập từ điển (Vocabulary Lookup)<br>Sau đây là một tập từ điển:<br><img src="/2020/08/10/text-representation/vocab_example.png" alt="Vocabulary"><br>Trong đó:</li>
+</ol>
+<ul>
+<li>Cột trái là thứ tự của tokens</li>
+<li>Cột giữa là tokens </li>
+<li>Cột ngoài cùng là tần suất xuất hiện của tokens</li>
+</ul>
+<p><code>Tôn ngộ không , Tề thiên đại_th@@ ánh đại_náo thiên_@@ cung</code><br><code>[11623, 17539, 17, 4, 19149, 6536, 57035, 2067, 41713, 13454, 1820]</code></p>
+<p>Các tokens ánh xạ song ánh vào các Ids trong tập từ điển.</p>
+<p>Cách 1 này có nhiều điểm hạn chế như là:</p>
+<ul>
+<li>Khả năng hiểu từ ngữ của mô hình bị hạn chế bởi tập từ điển. Nếu như tập từ điển chỉ có 30000 từ, mô hình chỉ xử lý được 30000 từ này và gặp lỗi khi xử lý từ nằm ngoài từ điển. Trước kia, để giải quyết vấn đề này, người ta sử dụng tag VD như <oov> (Out-Of-Vocabulary) để đánh dấu cho những từ nằm ngoài. Gần đây thì có thêm BPE Encoding hiệu quả hơn nhiều trong việc hiểu các từ nằm ngoài từ điển. <a target="_blank" rel="noopener" href="https://trituenhantao.io/kien-thuc/byte-pair-encoding-vu-khi-bi-mat-cua-nlp-hien-dai/">BPE Encoding</a></oov></li>
+<li>Phải mất công sức để xây dựng một tập từ điển tốt.</li>
+<li>Nếu cứ có từ nào mới thì lại phải thay đổi tập từ điển. Tập từ điển thay đổi thì phải train lại mô hình để mô hình nhận thức được các từ thay đổi đó, … rắc rối.</li>
+</ul>
+<p>Dù vậy thì tập từ điển vẫn được sử dụng rất nhiều đến tận bây giờ.</p>
+<ol start="2">
+<li>Bảng băm (Feature Hashing)<br>Bảng băm là kỹ thuật được sinh ra để giải quyết các vấn đề trên của tập từ điển, có một thời rất nổi tiếng.</li>
+</ol>
+<p>Tôi tin rằng những người đọc bài này có kiến thức nền tảng về bảng băm nên sẽ không nhắc lại nó.</p>
+<p>Ý tưởng là cứ khi nào gặp một từ lạ từ điển chưa có thì cho nó vào bảng băm, đồng thời gán cho nó một giá trị băm trong bảng. Hàm băm có khả năng kết nối một dữ liệu độ lớn bất kì (câu, từ) với một giá trị có độ lớn hữu hạn (giá trị băm). Do đó, mô hình sẽ không bao giờ sợ vấn đề Out-Of-Vocabulary.</p>
+<p><code>'Hello' --> hash function --> 784549 </code><br><code>'world' --> hash function --> 019857</code><br><code>'Hello world' --> [784549, 019857]</code></p>
+<p>Ý tưởng này cũng sẽ gặp phải các vấn đề bản chất của bảng băm như xung đột, và không thể truy ngược giá trị hash được.</p>
+<p>Đối với vấn đề 1 thì không quá lo, giá trị băm càng lớn thì càng ít bị xung đột trong mối quan hệ tuyến tính. Ta chấp nhận xung đột, nó cũng không ảnh hưởng quá nhiều đến kết quả. Bài viết sau giải thích rõ tại sao lại như vậy.<br><a target="_blank" rel="noopener" href="https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087">Collision</a><br>VD: giá trị băm <code>1234412494897129479249812894</code> sẽ ít bị xung đột.</p>
+<p>Bảng băm thể hiện nhiều lợi thế rõ rệt so với tập từ điển như là:</p>
+<ul>
+<li>Dễ dàng update tập từ điển dù mô hình sẽ không nhận ra từ được update đó. Điều đó có ảnh hưởng tới kết quả của mô hình dù tôi không rõ là đáng kể hay không.</li>
+<li>Một đặc điểm hay nữa của giá trị băm là nó giúp việc tìm kiếm weights của feature nhanh hơn. Phần “tìm kiếm weights của feature”  nghe có vẻ khá lạ, hiện tại bạn cứ tạm nhớ nó. Tôi sẽ giải thích rõ hơn ở phần 5.</li>
+</ul>
+<p>Tuy Feature Hashing được sinh ra để giải quyết các vấn đề của tập từ điển. Tôi vẫn để ý thấy tập từ điển được sử dụng nhiều hơn trong các mô hình SOTA (State Of The Art). Đối thủ của Feature Hashing có lẽ là BPE Encoding.</p>
 </body></html>
     </div>
 
@@ -272,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-1-Thu-thap-tap-tu-dien"><span class="nav-number">2.</span> <span class="nav-text">Bước 1: Thu thập tập từ điển</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-2-Tien-xu-ly-tap-tu-dien"><span class="nav-number">3.</span> <span class="nav-text">Bước 2: Tiền xử lý tập từ điển</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-3-Tokenization"><span class="nav-number">4.</span> <span class="nav-text">Bước 3: Tokenization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-4-Token-Id-Mapping"><span class="nav-number">5.</span> <span class="nav-text">Bước 4: Token-Id Mapping</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
