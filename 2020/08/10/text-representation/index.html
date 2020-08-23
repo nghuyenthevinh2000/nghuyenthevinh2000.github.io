@@ -21,15 +21,13 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Blog &lt;2&gt;: Biểu diễn từ ngữ (Text Representation)">
+<meta property="og:title" content="Blog &lt;2.1&gt;: Biểu diễn từ ngữ (Text Representation)">
 <meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/index.html">
 <meta property="og:site_name" content="VN_NLP">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
-<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Human-dictionary.png">
-<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/vocab_example.png">
 <meta property="article:published_time" content="2020-08-10T16:45:00.000Z">
-<meta property="article:modified_time" content="2020-08-12T16:40:13.164Z">
+<meta property="article:modified_time" content="2020-08-23T11:20:29.404Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
@@ -47,7 +45,7 @@
   };
 </script>
 
-  <title>Blog <2>: Biểu diễn từ ngữ (Text Representation) | VN_NLP</title>
+  <title>Blog <2.1>: Biểu diễn từ ngữ (Text Representation) | VN_NLP</title>
   
 
 
@@ -165,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Blog <2>: Biểu diễn từ ngữ (Text Representation)
+          Blog <2.1>: Biểu diễn từ ngữ (Text Representation)
         </h1>
 
         <div class="post-meta">
@@ -182,7 +180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2020-08-12 23:40:13" itemprop="dateModified" datetime="2020-08-12T23:40:13+07:00">2020-08-12</time>
+                <time title="Được thay đổi: 2020-08-23 18:20:29" itemprop="dateModified" datetime="2020-08-23T18:20:29+07:00">2020-08-23</time>
               </span>
 
           
@@ -199,21 +197,22 @@
         <html><head></head><body><h1 id="Tong-quan"><a href="#Tong-quan" class="headerlink" title="Tổng quan"></a>Tổng quan</h1><p>Mọi mô hình Deep Learning trong NLP đều xử lý đầu vào (inputs) ở dạng số. Nhiệm vụ đầu tiên chính là chuyển ngôn ngữ tự nhiên thành dạng số để xử lý. Bỏ qua bước này là ăn cám. Bức ảnh dưới đây tóm tắt toàn bộ quy trình trong biểu diễn từ ngữ.</p>
 <p><img src="/2020/08/10/text-representation/Overview-of-text-representation.png" alt="Overview"></p>
 <ol>
-<li>Bước 1: Thu thập tập từ điển</li>
-<li>Bước 2: Xử lý tập từ điển</li>
-<li>Bước 3: Quá trình tokenization</li>
-<li>Bước 4: Liên kết các tokens, kết quả của quá trình tokenization, với các ID.</li>
-<li>Bước 5: Biến đổi các ID thành các đầu vào (inputs) cho mô hình NLP xử lý.</li>
+<li>Bước 1: Thu thập tập dữ liệu (corpus)</li>
+<li>Bước 2: Xử lý tập dữ liệu (Preprocessing): <a href="/2020/08/23/text-representation-2/" title="Blog <2.2>: Biểu diễn từ ngữ (Text Representation)">Blog <2.2>: Biểu diễn từ ngữ (Text Representation)</a></li>
+<li>Bước 3: Quá trình tokenization (Tokenization): <a href="/2020/08/23/text-representation-3/" title="Blog <2.3>: Biểu diễn từ ngữ (Text Representation)">Blog <2.3>: Biểu diễn từ ngữ (Text Representation)</a></li>
+<li>Bước 4: Liên kết các tokens, kết quả của quá trình tokenization, với các ID. (Token-Id Mapping): <a href="/2020/08/23/text-representation-4/" title="Blog <2.4>: Biểu diễn từ ngữ (Text Representation)">Blog <2.4>: Biểu diễn từ ngữ (Text Representation)</a></li>
+<li>Bước 5: Biến đổi các ID thành các đầu vào (inputs) cho mô hình NLP xử lý. (Inputs)</li>
 </ol>
-<h1 id="Buoc-1-Thu-thap-tap-tu-dien"><a href="#Buoc-1-Thu-thap-tap-tu-dien" class="headerlink" title="Bước 1: Thu thập tập từ điển"></a>Bước 1: Thu thập tập từ điển</h1><p>Mỗi ngôn ngữ đều có một quyển từ điển kèm theo. Tiếng Anh có từ điển tiếng Anh. Tiếng Việt có từ điển tiếng Việt. Các quyển từ điển tồn tại để giúp mọi người học một thứ tiếng họ chưa biết: đọc, nghe nó; nói, viết nó.</p>
-<p>Máy cũng vậy, nó cần một quyển từ điển để hiểu và sinh được ngôn ngữ của con người.</p>
-<p>Quyển từ điển dành cho máy không giống với quyển từ điển dành cho con người.</p>
-<ol>
-<li>Đây là quyển từ điển dành cho con người:<br><img src="/2020/08/10/text-representation/Human-dictionary.png" alt="Human Dictionary"></li>
-</ol>
-<p>Con người có thể nhanh chóng hiểu các khái niệm được dịch sang. Khả năng hiểu ngôn ngữ của chúng ta rất tốt. Chỉ với một ít thông tin, một ít ví dụ, chúng ta đã có thể dễ dàng hiểu được từ “bank” một cách bản chất và có thể sử dụng nó cho nhiều mục đích nghe, nói, đọc, viết.</p>
-<ol start="2">
-<li>Đây là quyển từ điển dành cho máy:<table>
+<h1 id="Buoc-1-Thu-thap-tap-du-lieu"><a href="#Buoc-1-Thu-thap-tap-du-lieu" class="headerlink" title="Bước 1: Thu thập tập dữ liệu"></a>Bước 1: Thu thập tập dữ liệu</h1><p>Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</p>
+<p>Nếu như ta xây dựng tập dữ liệu vớ vẩn rồi cho vào mô hình thì sao?</p>
+<p>Thu thập dữ liệu như thế nào?</p>
+<h2 id="Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu"><a href="#Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu" class="headerlink" title="Tại sao các mô hình Deep Learning lại cần tập dữ liệu?"></a>Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</h2><ul>
+<li>Use - cases 1: Xây dựng tập từ điển (vocabulary)<br>Mỗi ngôn ngữ đều có một quyển từ điển kèm theo. Tiếng Anh có từ điển tiếng Anh. Tiếng Việt có từ điển tiếng Việt. Các quyển từ điển tồn tại để giúp mọi người học và sử dụng một thứ tiếng họ chưa biết: đọc, nghe, nói, viết.</li>
+</ul>
+<p>Model cũng vậy, nó cần một quyển từ điển để xử lý được ngôn ngữ của con người.<br>Một quyển từ điển càng nhiều từ thì khả năng hiểu của model càng tốt và càng dễ tránh được vấn đề Out-Of-Vocabulary (<strong>Out-Of-Vocabulary</strong> là vấn đề model gặp từ không có trong tập từ điển ảnh hưởng xấu tới khả năng xử lý ngôn ngữ tự nhiên).</p>
+<p>Model xây tập từ điển thông qua việc xử lý tập dữ liệu, tập dữ liệu có từ nào thì model sẽ thêm vào từ đấy. Do đó, càng nhiều tập dữ liệu thì tập từ điển sẽ có càng nhiều từ.</p>
+<p>Một ví dụ về tập dữ liệu:</p>
+<table>
 <thead>
 <tr>
 <th>Tập dữ liệu</th>
@@ -229,57 +228,35 @@
 <td><a target="_blank" rel="noopener" href="https://www.fantasticfiction.com/g/kenneth-grahame/river-bank.htm">https://www.fantasticfiction.com/g/kenneth-grahame/river-bank.htm</a></td>
 </tr>
 </tbody></table>
-</li>
-</ol>
-<p>Cũng vẫn là từ “bank”, máy lại có cách hiểu khác chúng ta như một vài VD sau:</p>
+<p>Chi tiết hơn về quá trình xây dựng tập dữ liệu sẽ được đề cập trong bước 3: tokenization</p>
 <ul>
-<li><p>Máy xem từ “bank” hay nằm cạnh từ nào. VD: bank account, river bank, … là hay đi với nhau; còn fiery bank, dragon bank, … hiếm khi đi với nhau)</p>
-</li>
-<li><p>Máy xem từ “bank” được liên kết ngữ cảnh nào. VD: </p>
-<ul>
-<li>“bank” trong bank account hay đi với những con người lịch thiệp, các giao dịch tiền tệ, kế toán, tài chính, …</li>
-<li>“bank” trong river bank hay đi với thiên nhiên, môi trường, các con vật, … Như vậy câu nào mà có thiên nhiên, môi trường, các con vật thì khó có thể là “bank” trong “bank account”</li>
+<li>Use - cases 2: Hiểu đúng nghĩa của từ theo từng nghĩa cảnh (Contextualized Word):<br>Cùng là từ “bank”, tùy từng trường hợp sẽ có nghĩa khác nhau. VD:<ul>
+<li>“bank” trong bank account chỉ về tài khoản ngân hàng.</li>
+<li>“bank” trong river bank chỉ về bờ sông.</li>
 </ul>
 </li>
 </ul>
-<p>Để máy có thể hiểu được như trên, nó cần một tập dữ liệu đa dạng mà chứa từ bank. Nó sẽ đọc rất nhiều dữ liệu và rút ra được một mối liên hệ nào đó giữa từ bank và các từ xung quanh nó. Nhưng “bank” thực chất là gì, tôi tin máy không hiểu được. Máy chỉ sao chép lại hành vi sử dụng từ “bank” của con người.</p>
-<h1 id="Buoc-2-Tien-xu-ly-tap-tu-dien"><a href="#Buoc-2-Tien-xu-ly-tap-tu-dien" class="headerlink" title="Bước 2: Tiền xử lý tập từ điển"></a>Bước 2: Tiền xử lý tập từ điển</h1><h1 id="Buoc-3-Tokenization"><a href="#Buoc-3-Tokenization" class="headerlink" title="Bước 3: Tokenization"></a>Bước 3: Tokenization</h1><h1 id="Buoc-4-Token-Id-Mapping"><a href="#Buoc-4-Token-Id-Mapping" class="headerlink" title="Bước 4: Token-Id Mapping"></a>Bước 4: Token-Id Mapping</h1><p>Các tokens được sinh ra ở bước 3 sẽ được liên kết với các con số (Ids) thông qua hai cách:</p>
+<p>Model nhận biết được nghĩa của từ “bank” theo từng nghĩa cảnh như sau:<br>    * “bank” trong bank account hay đi cùng với các từ liên quan đến tài chính, những người mặc đồ vest, lịch sự, sang trọng, … như tiền, sổ sách kế toán, nhân viên, két sắt, …<br>    * “bank” trong river bank hay đi cùng với các từ liên quan đến thiên nhiên, động vật, công viên, nước, … như sông, vịt, cây cối, …</p>
+<p>Để model có thể hiểu được như trên, nó cần một tập dữ liệu đa dạng mà chứa từ bank. Nó sẽ đọc rất nhiều dữ liệu và rút ra được một mối liên hệ nào đó giữa từ bank và các từ xung quanh nó. Do đó, càng nhiều tập dữ liệu thì model càng hiểu tốt xung quanh.</p>
+<p>Chi tiết về quá trình xây dựng Contextualized Word Representation sẽ được đề cập đến ở bước 5.</p>
 <ul>
-<li>Tập từ điển (Vocabulary Lookup)</li>
-<li>Bảng băm (Feature Hashing)</li>
+<li>Use - cases 3: Huấn luyện một mô hình Deep Learning tốt hơn<br>Có 2 cách để giải quyết một vấn đề:</li>
 </ul>
-<p>Ids rất cần thiết để biến các tokens thành dạng dữ liệu phù hợp với mô hình. Phần này tôi sẽ nói sau ở bước 5.</p>
 <ol>
-<li>Tập từ điển (Vocabulary Lookup)<br>Sau đây là một tập từ điển:<br><img src="/2020/08/10/text-representation/vocab_example.png" alt="Vocabulary"><br>Trong đó:</li>
+<li>Làm đúng từ đầu đến cuối.</li>
+<li>Ban đầu làm ngẫu nhiên, đánh giá sai sót của hoạt động đó, và sửa sai để đúng hơn. Lặp lại hành động đến khi bài toán được giải quyết.</li>
 </ol>
-<ul>
-<li>Cột trái là thứ tự của tokens</li>
-<li>Cột giữa là tokens </li>
-<li>Cột ngoài cùng là tần suất xuất hiện của tokens</li>
-</ul>
-<p><code>Tôn ngộ không , Tề thiên đại_th@@ ánh đại_náo thiên_@@ cung</code><br><code>[11623, 17539, 17, 4, 19149, 6536, 57035, 2067, 41713, 13454, 1820]</code></p>
-<p>Các tokens ánh xạ song ánh vào các Ids trong tập từ điển.</p>
-<p>Cách 1 này có nhiều điểm hạn chế như là:</p>
-<ul>
-<li>Khả năng hiểu từ ngữ của mô hình bị hạn chế bởi tập từ điển. Nếu như tập từ điển chỉ có 30000 từ, mô hình chỉ xử lý được 30000 từ này và gặp lỗi khi xử lý từ nằm ngoài từ điển. Trước kia, để giải quyết vấn đề này, người ta sử dụng tag VD như <oov> (Out-Of-Vocabulary) để đánh dấu cho những từ nằm ngoài. Gần đây thì có thêm BPE Encoding hiệu quả hơn nhiều trong việc hiểu các từ nằm ngoài từ điển. <a target="_blank" rel="noopener" href="https://trituenhantao.io/kien-thuc/byte-pair-encoding-vu-khi-bi-mat-cua-nlp-hien-dai/">BPE Encoding</a></oov></li>
-<li>Phải mất công sức để xây dựng một tập từ điển tốt.</li>
-<li>Nếu cứ có từ nào mới thì lại phải thay đổi tập từ điển. Tập từ điển thay đổi thì phải train lại mô hình để mô hình nhận thức được các từ thay đổi đó, … rắc rối.</li>
-</ul>
-<p>Dù vậy thì tập từ điển vẫn được sử dụng rất nhiều đến tận bây giờ.</p>
-<ol start="2">
-<li>Bảng băm (Feature Hashing)<br>Bảng băm là kỹ thuật được sinh ra để giải quyết các vấn đề trên của tập từ điển, có một thời rất nổi tiếng.</li>
+<p>Việc huấn luyện mô hình Deep Learning là theo phương pháp số 2.</p>
+<p>Mô hình Deep Learning ban đầu được khởi tạo ngẫu nhiên –> xử lý tập dữ liệu –> ra kết quả –> đánh giá kết quả đấy xem có đủ tốt, học hỏi sai sót –> sai sót được một thuật toán tối ưu hóa sửa sai –> Mô hình Deep Learning tốt hơn –> xử lý tập dữ liệu –> …</p>
+<p>Quá trình trên chính là quá trình học. Trong đó, đoạn xử lý tập dữ liệu là một đoạn quan trọng. Giả sử, ta có tập dữ liệu gồm a, b, c, d, e, f. Model xử lý a ra A với sai sót A’. Từ sai sót A’ đó model học cách sửa sai A’. Model tiếp tục xử lý a ra A với sai sót A’ sẽ thừa thãi vì model đã học A’. Model xử lý những dữ liệu b, c, d, e, f khác thì model mới học thêm. Do đó, càng nhiều dữ liệu thì model càng học thêm được nhiều, tránh bị lặp lại. Model học được nhiều hơn dẫn tới một mức đủ nào đó tiệm cận với model tổng quát - kết quả cuối cùng.</p>
+<h2 id="Thu-thap-du-lieu-vo-van-thi-sao"><a href="#Thu-thap-du-lieu-vo-van-thi-sao" class="headerlink" title="Thu thập dữ liệu vớ vẩn thì sao?"></a>Thu thập dữ liệu vớ vẩn thì sao?</h2><p>Những use - cases trên giúp ta thấy được rằng việc thu thập tập dữ liệu là cần thiết. Cần thiết nhưng có quan trọng? </p>
+<p>Một bài toán NLP tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu tiếng anh để xử lý. Model tra tập từ điển tiếng việt cho tập dữ liệu tiếng anh. Model tra fail vì từ điển tiếng việt không có tiếng anh. Fail.</p>
+<p>Một bài toán hỏi - đáp (QA) tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu phân loại câu (Sequence Classification) tiếng việt để xử lý. Câu hỏi là “Bạn tên là gì?”, model trả lời “kiểu câu hỏi”. “À vậy bạn họ Kiểu, tên Hỏi”. Fail.</p>
+<p>Một bài toán hỏi - đáp (QA) tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu tan hoang, từ không từ có để xử lý. Model sẽ không thể xây dựng được Contextualized Word Representation tốt, dẫn tới nhiều câu không hiểu đúng. Model sẽ thể hiện tồi tệ.</p>
+<h2 id="Thu-thap-tap-du-lieu-nhu-the-nao"><a href="#Thu-thap-tap-du-lieu-nhu-the-nao" class="headerlink" title="Thu thập tập dữ liệu như thế nào?"></a>Thu thập tập dữ liệu như thế nào?</h2><p>Thu thập dữ liệu là một công việc cần thiết và quan trọng, do đó, ta cần phải hết sức cẩn thận khi thu thập tập dữ liệu.</p>
+<ol>
+<li>Xác định <strong>rõ ràng</strong> nhiệm vụ NLP: Mỗi nhiệm vụ NLP sẽ cần các tập dữ liệu khác nhau </li>
 </ol>
-<p>Tôi tin rằng những người đọc bài này có kiến thức nền tảng về bảng băm nên sẽ không nhắc lại nó.</p>
-<p>Ý tưởng là cứ khi nào gặp một từ lạ từ điển chưa có thì cho nó vào bảng băm, đồng thời gán cho nó một giá trị băm trong bảng. Hàm băm có khả năng kết nối một dữ liệu độ lớn bất kì (câu, từ) với một giá trị có độ lớn hữu hạn (giá trị băm). Do đó, mô hình sẽ không bao giờ sợ vấn đề Out-Of-Vocabulary.</p>
-<p><code>'Hello' --> hash function --> 784549 </code><br><code>'world' --> hash function --> 019857</code><br><code>'Hello world' --> [784549, 019857]</code></p>
-<p>Ý tưởng này cũng sẽ gặp phải các vấn đề bản chất của bảng băm như xung đột, và không thể truy ngược giá trị hash được.</p>
-<p>Đối với vấn đề 1 thì không quá lo, giá trị băm càng lớn thì càng ít bị xung đột trong mối quan hệ tuyến tính. Ta chấp nhận xung đột, nó cũng không ảnh hưởng quá nhiều đến kết quả. Bài viết sau giải thích rõ tại sao lại như vậy.<br><a target="_blank" rel="noopener" href="https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087">Collision</a><br>VD: giá trị băm <code>1234412494897129479249812894</code> sẽ ít bị xung đột.</p>
-<p>Bảng băm thể hiện nhiều lợi thế rõ rệt so với tập từ điển như là:</p>
-<ul>
-<li>Dễ dàng update tập từ điển dù mô hình sẽ không nhận ra từ được update đó. Điều đó có ảnh hưởng tới kết quả của mô hình dù tôi không rõ là đáng kể hay không.</li>
-<li>Một đặc điểm hay nữa của giá trị băm là nó giúp việc tìm kiếm weights của feature nhanh hơn. Phần “tìm kiếm weights của feature”  nghe có vẻ khá lạ, hiện tại bạn cứ tạm nhớ nó. Tôi sẽ giải thích rõ hơn ở phần 5.</li>
-</ul>
-<p>Tuy Feature Hashing được sinh ra để giải quyết các vấn đề của tập từ điển. Tôi vẫn để ý thấy tập từ điển được sử dụng nhiều hơn trong các mô hình SOTA (State Of The Art). Đối thủ của Feature Hashing có lẽ là BPE Encoding.</p>
 </body></html>
     </div>
 
@@ -298,7 +275,10 @@
     <a href="/2020/08/10/Welcome/" rel="prev" title="Blog <1>: Mặt trời mọc ở xứ sở NLP">
       <i class="fa fa-chevron-left"></i> Blog <1>: Mặt trời mọc ở xứ sở NLP
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/23/text-representation-2/" rel="next" title="Blog <2.2>: Biểu diễn từ ngữ (Text Representation)">
+      Blog <2.2>: Biểu diễn từ ngữ (Text Representation) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -357,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-1-Thu-thap-tap-tu-dien"><span class="nav-number">2.</span> <span class="nav-text">Bước 1: Thu thập tập từ điển</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-2-Tien-xu-ly-tap-tu-dien"><span class="nav-number">3.</span> <span class="nav-text">Bước 2: Tiền xử lý tập từ điển</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-3-Tokenization"><span class="nav-number">4.</span> <span class="nav-text">Bước 3: Tokenization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-4-Token-Id-Mapping"><span class="nav-number">5.</span> <span class="nav-text">Bước 4: Token-Id Mapping</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-1-Thu-thap-tap-du-lieu"><span class="nav-number">2.</span> <span class="nav-text">Bước 1: Thu thập tập dữ liệu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu"><span class="nav-number">2.1.</span> <span class="nav-text">Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thu-thap-du-lieu-vo-van-thi-sao"><span class="nav-number">2.2.</span> <span class="nav-text">Thu thập dữ liệu vớ vẩn thì sao?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thu-thap-tap-du-lieu-nhu-the-nao"><span class="nav-number">2.3.</span> <span class="nav-text">Thu thập tập dữ liệu như thế nào?</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,7 +351,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">bài viết</span>
         </a>
       </div>

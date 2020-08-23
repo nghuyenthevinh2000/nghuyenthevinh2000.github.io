@@ -21,16 +21,18 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Blog &lt;1&gt;: Mặt trời mọc ở xứ sở NLP">
-<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/10/Welcome/index.html">
+<meta property="og:title" content="Blog &lt;2.4&gt;: Biểu diễn từ ngữ (Text Representation)">
+<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/index.html">
 <meta property="og:site_name" content="VN_NLP">
 <meta property="og:locale" content="vi_VN">
-<meta property="article:published_time" content="2020-08-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-11T04:56:54.136Z">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/vocab_example.png">
+<meta property="article:published_time" content="2020-08-23T11:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-23T11:05:51.588Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/vocab_example.png">
 
-<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/08/10/Welcome/">
+<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/">
 
 
 <script id="page-configurations">
@@ -43,7 +45,7 @@
   };
 </script>
 
-  <title>Blog <1>: Mặt trời mọc ở xứ sở NLP | VN_NLP</title>
+  <title>Blog <2.4>: Biểu diễn từ ngữ (Text Representation) | VN_NLP</title>
   
 
 
@@ -148,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="vi">
-    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2020/08/10/Welcome/">
+    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Blog <1>: Mặt trời mọc ở xứ sở NLP
+          Blog <2.4>: Biểu diễn từ ngữ (Text Representation)
         </h1>
 
         <div class="post-meta">
@@ -170,16 +172,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Tạo lúc</span>
+              
 
-              <time title="Được tạo: 2020-08-10 23:00:00" itemprop="dateCreated datePublished" datetime="2020-08-10T23:00:00+07:00">2020-08-10</time>
+              <time title="Được tạo: 2020-08-23 18:00:00 / Được thay đổi: 18:05:51" itemprop="dateCreated datePublished" datetime="2020-08-23T18:00:00+07:00">2020-08-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2020-08-11 11:56:54" itemprop="dateModified" datetime="2020-08-11T11:56:54+07:00">2020-08-11</time>
-              </span>
 
           
 
@@ -192,24 +188,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><h1 id="Tong-quan"><a href="#Tong-quan" class="headerlink" title="Tổng quan"></a>Tổng quan</h1><p>Các bạn mới bước chân vào NLP. Các bạn cảm thấy hoang mang cực độ. Các bạn không rõ mình sẽ đi đâu, về đâu. Mình cũng từng giống như các bạn. Đừng lo, hãy để mình giúp các bạn tìm định hướng NLP qua bài này.</p>
-<h1 id="Tai-nguyen-hoc-NLP"><a href="#Tai-nguyen-hoc-NLP" class="headerlink" title="Tài nguyên học NLP"></a>Tài nguyên học NLP</h1><p>Đối với những người mới bắt đầu, tìm được một nguồn tài nguyên học tốt sẽ giúp bạn tiến triển nhanh chóng trên con đường nắm được NLP. Một nguồn tài nguyên học tốt phải đảm bảo có được:</p>
+        <html><head></head><body><h1 id="Buoc-4-Token-Id-Mapping"><a href="#Buoc-4-Token-Id-Mapping" class="headerlink" title="Bước 4: Token-Id Mapping"></a>Bước 4: Token-Id Mapping</h1><p>Các tokens được sinh ra ở bước 3 sẽ được liên kết với các con số (Ids) thông qua hai cách:</p>
+<ul>
+<li>Tập từ điển (Vocabulary Lookup)</li>
+<li>Bảng băm (Feature Hashing)</li>
+</ul>
+<p>Ids rất cần thiết để biến các tokens thành dạng dữ liệu phù hợp với mô hình. Phần này tôi sẽ nói sau ở bước 5.</p>
 <ol>
-<li>Lộ trình học rõ ràng </li>
-<li>Kiến thức đầy đủ, rõ ràng</li>
-<li>Ví dụ trực quan, dễ hình dung</li>
-<li>Bài tập thực hành ngay</li>
+<li>Tập từ điển (Vocabulary Lookup)<br>Sau đây là một tập từ điển:<br><img src="/2020/08/23/text-representation-4/vocab_example.png" alt="Vocabulary"><br>Trong đó:</li>
 </ol>
-<h2 id="Nguon-tai-lieu-tieng-anh"><a href="#Nguon-tai-lieu-tieng-anh" class="headerlink" title="Nguồn tài liệu tiếng anh"></a>Nguồn tài liệu tiếng anh</h2><p>Có một sự thật rằng tài liệu tiếng anh được cập nhật liên tục, được viết bởi những chuyên gia giỏi nhất thế giới. Nếu như các bạn đọc hiểu được tiếng anh dễ dàng, hãy đọc các tài liệu tiếng anh. Nếu như các bạn đang bập bẹ đọc hiểu tiếng anh, các bạn đang có suy nghĩ làm nước đôi: vừa học NLP, vừa học tiếng anh, dừng ngay lập tức. Học nước đôi như vậy cực kì tốn sức, cứ cách vài câu lại phải giở từ điển. Để hiểu được tài liệu chuyên ngành, các bạn cần nắm cả câu, cả đoạn chứ không chỉ dừng ở một vài từ. Nguy hiểm nhất ở chỗ đam mê học NLP của bạn có thể bị giết chết, các bạn sẽ bỏ cuộc.</p>
-<p>Sau đây là danh sách các nguồn đọc tiếng anh bạn hãy tìm tới:</p>
-<ol>
-<li>CS224N Stanford, Videos học tìm trên youtube</li>
+<ul>
+<li>Cột trái là thứ tự của tokens</li>
+<li>Cột giữa là tokens </li>
+<li>Cột ngoài cùng là tần suất xuất hiện của tokens trong tập dữ liệu</li>
+</ul>
+<p><code>Tôn ngộ không , Tề thiên đại_th@@ ánh đại_náo thiên_@@ cung</code><br><code>[11623, 17539, 17, 4, 19149, 6536, 57035, 2067, 41713, 13454, 1820]</code></p>
+<p>Các tokens ánh xạ song ánh vào các Ids trong tập từ điển.</p>
+<p>Cách 1 này có nhiều điểm hạn chế như là:</p>
+<ul>
+<li>Khả năng hiểu từ ngữ của mô hình bị hạn chế bởi tập từ điển. Nếu như tập từ điển chỉ có 30000 từ, mô hình chỉ xử lý được 30000 từ này và gặp lỗi khi xử lý từ nằm ngoài từ điển. Trước kia, để giải quyết vấn đề này, người ta sử dụng tag VD như <unk> (Out-Of-Vocabulary) để đánh dấu cho những từ không biết. Gần đây thì có thêm BPE Encoding hiệu quả hơn nhiều trong việc hiểu các từ nằm ngoài từ điển. <a target="_blank" rel="noopener" href="https://trituenhantao.io/kien-thuc/byte-pair-encoding-vu-khi-bi-mat-cua-nlp-hien-dai/">BPE Encoding</a></unk></li>
+<li>Phải mất công sức để xây dựng một tập từ điển tốt.</li>
+<li>Nếu cứ có từ nào mới thì lại phải thay đổi tập từ điển. Tập từ điển thay đổi thì phải train lại mô hình để mô hình nhận thức được các từ thay đổi đó, … rắc rối.</li>
+</ul>
+<p>Dù vậy thì tập từ điển vẫn được sử dụng rất nhiều đến tận bây giờ.</p>
+<ol start="2">
+<li>Bảng băm (Feature Hashing)<br>Bảng băm là kỹ thuật được sinh ra để giải quyết các vấn đề trên của tập từ điển, có một thời rất nổi tiếng.</li>
 </ol>
-<h2 id="Nguon-tai-lieu-tieng-viet"><a href="#Nguon-tai-lieu-tieng-viet" class="headerlink" title="Nguồn tài liệu tiếng việt"></a>Nguồn tài liệu tiếng việt</h2><p>Bạn chấp nhận khả năng đọc hiểu tiếng anh hạn chế của mình. Nguồn tài liệu tiếng việt về NLP cực kì hạn chế, lại còn không được cập nhật liên tục như nguồn nước ngoài. Mình là nghiên cứu sinh ở Bách Khoa vừa tìm hiểu vừa nghiên cứu, mình sẽ cố gắng đem tới một nguồn tài nguyên học tốt.</p>
-<p>Sau đây là lộ trình học NLP:</p>
-<ol>
-<li><a href="/2020/08/10/text-representation/" title="Blog <2>: Biểu diễn từ ngữ (Text Representation)">Blog <2>: Biểu diễn từ ngữ (Text Representation)</a></li>
-</ol>
+<p>Tôi tin rằng những người đọc bài này có kiến thức nền tảng về bảng băm nên sẽ không nhắc lại nó.</p>
+<p>Ý tưởng là cứ khi nào gặp một từ lạ từ điển chưa có thì cho nó vào bảng băm, đồng thời gán cho nó một giá trị băm trong bảng. Hàm băm có khả năng kết nối một dữ liệu độ lớn bất kì (câu, từ) với một giá trị có độ lớn hữu hạn (giá trị băm). Do đó, mô hình sẽ không bao giờ sợ vấn đề Out-Of-Vocabulary.</p>
+<p><code>'Hello' --> hash function --> 784549 </code><br><code>'world' --> hash function --> 019857</code><br><code>'Hello world' --> [784549, 019857]</code></p>
+<p>Ý tưởng này cũng sẽ gặp phải các vấn đề bản chất của bảng băm như xung đột, và không thể truy ngược giá trị hash được.</p>
+<p>Đối với vấn đề 1 thì không quá lo, giá trị băm càng lớn thì càng ít bị xung đột trong mối quan hệ tuyến tính. Ta chấp nhận xung đột, nó cũng không ảnh hưởng quá nhiều đến kết quả. Bài viết sau giải thích rõ tại sao lại như vậy.<br><a target="_blank" rel="noopener" href="https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087">Collision</a><br>VD: giá trị băm <code>1234412494897129479249812894</code> sẽ ít bị xung đột.</p>
+<p>Bảng băm thể hiện nhiều lợi thế rõ rệt so với tập từ điển như là:</p>
+<ul>
+<li>Dễ dàng update tập từ điển dù mô hình sẽ không nhận ra từ được update đó. Điều đó có ảnh hưởng tới kết quả của mô hình dù tôi không rõ là đáng kể hay không.</li>
+<li>Một đặc điểm hay nữa của giá trị băm là nó giúp việc tìm kiếm weights của feature nhanh hơn. Phần “tìm kiếm weights của feature”  nghe có vẻ khá lạ, hiện tại bạn cứ tạm nhớ nó. Tôi sẽ giải thích rõ hơn ở phần 5.</li>
+</ul>
+<p>Tuy Feature Hashing được sinh ra để giải quyết các vấn đề của tập từ điển. Tôi vẫn để ý thấy tập từ điển được sử dụng nhiều hơn trong các mô hình SOTA (State Of The Art). Đối thủ của Feature Hashing có lẽ là BPE Encoding.</p>
 </body></html>
     </div>
 
@@ -224,11 +239,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/08/10/text-representation/" rel="next" title="Blog <2.1>: Biểu diễn từ ngữ (Text Representation)">
-      Blog <2.1>: Biểu diễn từ ngữ (Text Representation) <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/23/text-representation-3/" rel="prev" title="Blog <2.3>: Biểu diễn từ ngữ (Text Representation)">
+      <i class="fa fa-chevron-left"></i> Blog <2.3>: Biểu diễn từ ngữ (Text Representation)
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -287,7 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tai-nguyen-hoc-NLP"><span class="nav-number">2.</span> <span class="nav-text">Tài nguyên học NLP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nguon-tai-lieu-tieng-anh"><span class="nav-number">2.1.</span> <span class="nav-text">Nguồn tài liệu tiếng anh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nguon-tai-lieu-tieng-viet"><span class="nav-number">2.2.</span> <span class="nav-text">Nguồn tài liệu tiếng việt</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-4-Token-Id-Mapping"><span class="nav-number">1.</span> <span class="nav-text">Bước 4: Token-Id Mapping</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
