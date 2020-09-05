@@ -27,7 +27,7 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
 <meta property="article:published_time" content="2020-08-10T16:45:00.000Z">
-<meta property="article:modified_time" content="2020-08-23T11:20:29.404Z">
+<meta property="article:modified_time" content="2020-09-05T16:17:08.268Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
@@ -180,7 +180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2020-08-23 18:20:29" itemprop="dateModified" datetime="2020-08-23T18:20:29+07:00">2020-08-23</time>
+                <time title="Được thay đổi: 2020-09-05 23:17:08" itemprop="dateModified" datetime="2020-09-05T23:17:08+07:00">2020-09-05</time>
               </span>
 
           
@@ -203,9 +203,10 @@
 <li>Bước 4: Liên kết các tokens, kết quả của quá trình tokenization, với các ID. (Token-Id Mapping): <a href="/2020/08/23/text-representation-4/" title="Blog <2.4>: Biểu diễn từ ngữ (Text Representation)">Blog <2.4>: Biểu diễn từ ngữ (Text Representation)</a></li>
 <li>Bước 5: Biến đổi các ID thành các đầu vào (inputs) cho mô hình NLP xử lý. (Inputs)</li>
 </ol>
-<h1 id="Buoc-1-Thu-thap-tap-du-lieu"><a href="#Buoc-1-Thu-thap-tap-du-lieu" class="headerlink" title="Bước 1: Thu thập tập dữ liệu"></a>Bước 1: Thu thập tập dữ liệu</h1><p>Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</p>
-<p>Nếu như ta xây dựng tập dữ liệu vớ vẩn rồi cho vào mô hình thì sao?</p>
+<h1 id="Buoc-1-Thu-thap-tap-du-lieu"><a href="#Buoc-1-Thu-thap-tap-du-lieu" class="headerlink" title="Bước 1: Thu thập tập dữ liệu"></a>Bước 1: Thu thập tập dữ liệu</h1><p>Tại sao các mô hình Deep Learning lại cần tập dữ liệu? (điều kiện cần)</p>
+<p>Nếu như ta xây dựng tập dữ liệu vớ vẩn rồi cho vào mô hình thì sao? (điều kiện đủ)</p>
 <p>Thu thập dữ liệu như thế nào?</p>
+<p>Thực hiện thu thập dữ liệu</p>
 <h2 id="Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu"><a href="#Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu" class="headerlink" title="Tại sao các mô hình Deep Learning lại cần tập dữ liệu?"></a>Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</h2><ul>
 <li>Use - cases 1: Xây dựng tập từ điển (vocabulary)<br>Mỗi ngôn ngữ đều có một quyển từ điển kèm theo. Tiếng Anh có từ điển tiếng Anh. Tiếng Việt có từ điển tiếng Việt. Các quyển từ điển tồn tại để giúp mọi người học và sử dụng một thứ tiếng họ chưa biết: đọc, nghe, nói, viết.</li>
 </ul>
@@ -249,14 +250,34 @@
 <p>Việc huấn luyện mô hình Deep Learning là theo phương pháp số 2.</p>
 <p>Mô hình Deep Learning ban đầu được khởi tạo ngẫu nhiên –> xử lý tập dữ liệu –> ra kết quả –> đánh giá kết quả đấy xem có đủ tốt, học hỏi sai sót –> sai sót được một thuật toán tối ưu hóa sửa sai –> Mô hình Deep Learning tốt hơn –> xử lý tập dữ liệu –> …</p>
 <p>Quá trình trên chính là quá trình học. Trong đó, đoạn xử lý tập dữ liệu là một đoạn quan trọng. Giả sử, ta có tập dữ liệu gồm a, b, c, d, e, f. Model xử lý a ra A với sai sót A’. Từ sai sót A’ đó model học cách sửa sai A’. Model tiếp tục xử lý a ra A với sai sót A’ sẽ thừa thãi vì model đã học A’. Model xử lý những dữ liệu b, c, d, e, f khác thì model mới học thêm. Do đó, càng nhiều dữ liệu thì model càng học thêm được nhiều, tránh bị lặp lại. Model học được nhiều hơn dẫn tới một mức đủ nào đó tiệm cận với model tổng quát - kết quả cuối cùng.</p>
-<h2 id="Thu-thap-du-lieu-vo-van-thi-sao"><a href="#Thu-thap-du-lieu-vo-van-thi-sao" class="headerlink" title="Thu thập dữ liệu vớ vẩn thì sao?"></a>Thu thập dữ liệu vớ vẩn thì sao?</h2><p>Những use - cases trên giúp ta thấy được rằng việc thu thập tập dữ liệu là cần thiết. Cần thiết nhưng có quan trọng? </p>
+<h2 id="Thu-thap-du-lieu-vo-van-thi-sao"><a href="#Thu-thap-du-lieu-vo-van-thi-sao" class="headerlink" title="Thu thập dữ liệu vớ vẩn thì sao?"></a>Thu thập dữ liệu vớ vẩn thì sao?</h2><p>Những use - cases trên giúp ta thấy được rằng việc thu thập tập dữ liệu là cần thiết. Cần thiết nhưng có quan trọng? Thu thập dữ liệu cho nó xong thì sao?</p>
 <p>Một bài toán NLP tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu tiếng anh để xử lý. Model tra tập từ điển tiếng việt cho tập dữ liệu tiếng anh. Model tra fail vì từ điển tiếng việt không có tiếng anh. Fail.</p>
 <p>Một bài toán hỏi - đáp (QA) tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu phân loại câu (Sequence Classification) tiếng việt để xử lý. Câu hỏi là “Bạn tên là gì?”, model trả lời “kiểu câu hỏi”. “À vậy bạn họ Kiểu, tên Hỏi”. Fail.</p>
 <p>Một bài toán hỏi - đáp (QA) tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu tan hoang, từ không từ có để xử lý. Model sẽ không thể xây dựng được Contextualized Word Representation tốt, dẫn tới nhiều câu không hiểu đúng. Model sẽ thể hiện tồi tệ.</p>
+<p>Trong một số trường hợp, tập dữ liệu tốt hơn dẫn tới model tốt hơn.</p>
 <h2 id="Thu-thap-tap-du-lieu-nhu-the-nao"><a href="#Thu-thap-tap-du-lieu-nhu-the-nao" class="headerlink" title="Thu thập tập dữ liệu như thế nào?"></a>Thu thập tập dữ liệu như thế nào?</h2><p>Thu thập dữ liệu là một công việc cần thiết và quan trọng, do đó, ta cần phải hết sức cẩn thận khi thu thập tập dữ liệu.</p>
 <ol>
 <li>Xác định <strong>rõ ràng</strong> nhiệm vụ NLP: Mỗi nhiệm vụ NLP sẽ cần các tập dữ liệu khác nhau </li>
 </ol>
+<h2 id="Thuc-hien-thu-thap-du-lieu"><a href="#Thuc-hien-thu-thap-du-lieu" class="headerlink" title="Thực hiện thu thập dữ liệu"></a>Thực hiện thu thập dữ liệu</h2><ol>
+<li>Mức độ dễ:<br>Mỗi nhiệm vụ NLP nổi tiếng (Question Answering, Natural Language Inference, …) thường có vài tập dữ liệu được tạo sẵn sẵn sàng sử dụng cho model. Các tập dữ liệu này đa phần đã được preprocessing sẵn, ta chỉ cần xác định rõ nhiệm vụ NLP và tìm tập dữ liệu tương ứng. Hãy Google!</li>
+</ol>
+<ul>
+<li>Hãy xác định tập dữ liệu cho Question Answering: tra google –> gõ “datasets for QA”</li>
+<li>Hãy xác định tập dữ liệu cho Natural Language Inference</li>
+</ul>
+<ol start="2">
+<li>Mức độ căng thẳng (trường hợp đen nhất)(lười là không làm được)<br>Đa số trường hợp, ta sẽ không tìm được dữ liệu ta muốn, ta buộc phải tự tạo một tập dữ liệu cho riêng mình. Quá trình tạo một tập dữ liệu thường mất nhiều thời gian và thậm chí là có thể rất nhiều tiền. Có nhiều cách để tạo một tập dữ liệu bao gồm cào dữ liệu (data crawling) từ nhiều trang web; thu thập dữ liệu bằng tay từ sách, báo, người khác tạo dữ liệu gửi cho mình (facebook, reddit, quora) … Trong đó, data crawling có lẽ sẽ là cách được áp dụng nhiều nhất vì nó không mất chi phí.</li>
+</ol>
+<ul>
+<li>Bước 1: xác định rõ ràng bài toán NLP ta muốn thực hiện.</li>
+<li>Bước 2: tìm hiểu các trang web nào có thông tin mà ta sẽ cần.</li>
+<li>Bước 3: học cấu trúc cơ bản của html, data crawling (cào dữ liệu web)(Hãy google, có rất nhiều bài tiếng việt hay). Biết cấu trúc cơ bản của HTML giúp rất nhiều cho quá trình cào dữ liệu, biết đủ để hiểu trang web ta muốn cào là được. </li>
+<li>Bước 4: viết một con bot crawler để cào dữ liệu. </li>
+<li>Bước 5: chạy con bot crawler để thu thập dữ liệu.</li>
+<li>Bước 6: tiền xử lý dữ liệu (sẽ nói ở bài sau)</li>
+</ul>
+<p>Bạn hãy thử tạo dữ liệu {tên nhà hàng, địa điểm nhà hàng, các món ăn nhà hàng phục vụ, giá cả các món ăn} trên địa bàn Hà Nội. Bí quá thì inbox mình qua <a target="_blank" rel="noopener" href="https://www.facebook.com/DicnityHonorJustice/">https://www.facebook.com/DicnityHonorJustice/</a> để lấy code mẫu, đáp án. Mình mất khoảng 1 tuần để học crawl và viết bot crawler (đã code quen và có kiến thức html từ trước) và 1 tuần nữa để crawl. </p>
 </body></html>
     </div>
 
@@ -337,7 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-1-Thu-thap-tap-du-lieu"><span class="nav-number">2.</span> <span class="nav-text">Bước 1: Thu thập tập dữ liệu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu"><span class="nav-number">2.1.</span> <span class="nav-text">Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thu-thap-du-lieu-vo-van-thi-sao"><span class="nav-number">2.2.</span> <span class="nav-text">Thu thập dữ liệu vớ vẩn thì sao?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thu-thap-tap-du-lieu-nhu-the-nao"><span class="nav-number">2.3.</span> <span class="nav-text">Thu thập tập dữ liệu như thế nào?</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-1-Thu-thap-tap-du-lieu"><span class="nav-number">2.</span> <span class="nav-text">Bước 1: Thu thập tập dữ liệu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tai-sao-cac-mo-hinh-Deep-Learning-lai-can-tap-du-lieu"><span class="nav-number">2.1.</span> <span class="nav-text">Tại sao các mô hình Deep Learning lại cần tập dữ liệu?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thu-thap-du-lieu-vo-van-thi-sao"><span class="nav-number">2.2.</span> <span class="nav-text">Thu thập dữ liệu vớ vẩn thì sao?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thu-thap-tap-du-lieu-nhu-the-nao"><span class="nav-number">2.3.</span> <span class="nav-text">Thu thập tập dữ liệu như thế nào?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thuc-hien-thu-thap-du-lieu"><span class="nav-number">2.4.</span> <span class="nav-text">Thực hiện thu thập dữ liệu</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
