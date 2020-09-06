@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="VN_NLP">
 <meta property="og:locale" content="vi_VN">
 <meta property="article:published_time" content="2020-08-23T10:30:00.000Z">
-<meta property="article:modified_time" content="2020-08-23T11:12:44.056Z">
+<meta property="article:modified_time" content="2020-09-06T04:35:38.030Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
 
@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Tạo lúc</span>
-              
 
-              <time title="Được tạo: 2020-08-23 17:30:00 / Được thay đổi: 18:12:44" itemprop="dateCreated datePublished" datetime="2020-08-23T17:30:00+07:00">2020-08-23</time>
+              <time title="Được tạo: 2020-08-23 17:30:00" itemprop="dateCreated datePublished" datetime="2020-08-23T17:30:00+07:00">2020-08-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Chỉnh sửa vào</span>
+                <time title="Được thay đổi: 2020-09-06 11:35:38" itemprop="dateModified" datetime="2020-09-06T11:35:38+07:00">2020-09-06</time>
+              </span>
 
           
 
@@ -186,7 +192,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><h1 id="Buoc-3-Tokenization"><a href="#Buoc-3-Tokenization" class="headerlink" title="Bước 3: Tokenization"></a>Bước 3: Tokenization</h1></body></html>
+        <html><head></head><body><h1 id="Buoc-3-Tokenization"><a href="#Buoc-3-Tokenization" class="headerlink" title="Bước 3: Tokenization"></a>Bước 3: Tokenization</h1><p>Tokens là đơn vị cơ bản nhất trong NLP. Mọi văn bản, dữ liệu đều phải biến về tokens trước khi được model xử lý qua. Quá trình biến đó được gọi là Tokenization.</p>
+<h2 id="Tokens-la-gi"><a href="#Tokens-la-gi" class="headerlink" title="Tokens là gì?"></a>Tokens là gì?</h2><p>Token dịch sang tiếng việt là biểu tượng tượng trưng. Trong câu “Trời đẹp quá”, tokens sẽ là “Trời”, “đẹp”, “quá”. Tokens gồm có ba mức:</p>
+<ul>
+<li>Word - level tokens = tokens cấp độ từ = “Stronger”</li>
+<li>Character - level tokens = tokens cấp độ chữ cái, kí tự = “S”, “t”, “r”, “o”, “n”, “g”, “e”, “r” (có ý nghĩa hơn trong tiếng Trung, các ngôn ngữ tượng hình)</li>
+<li>Subword - level tokens = tokens cấp độ từ phụ trợ = “strong”, “er” (có ý nghĩa hơn trong các ngôn ngữ hay liên kết nhiều từ (compound) như tiếng Anh, tiếng Đức, …)</li>
+</ul>
+<p><strong>Lưu ý</strong>: Ba mức trên của tokens bị rất nhiều bài viết tiếng việt lẫn lộn và rất hay coi word - level tokens là tokens. Điều này là sai hoàn toàn. Ảnh hưởng của nó là rất lớn nhất là khi quan niệm đó sai với tiếng Trung, tiếng Nhật, tiếng Hàn. Tư duy kiểu đấy sẽ không thể làm việc được với BPE - một kỹ thuật rất mạnh sử dụng subword - level tokens để đoán từ nằm ngoài tập từ điển.</p>
+<ul>
+<li>Đối với tiếng Trung:你叫什麼名字 (Bạn tên là gì?), các kí tự xếp ngay sát nhau, không phân tách như hệ chữ Latin. Mỗi kí tự trong tiếng Trung lại mang một ý nghĩa. Suy nghĩ kiểu word - level tokens là tokens là sai bét.</li>
+<li>Đối với tiếng Đức: Rechtsschutzversicherungsgesellschaften, đây là một danh từ nghĩa là “công ty bảo hiểm”. Tiếng Đức có rất nhiều từ kết hợp như vậy, ta phải phân tách thành các từ phụ trợ mới xử lý được. Tư duy kiểu word - level tokens là tokens sẽ rất hạn chế khi áp dụng cho tiếng Anh, tiếng Đức, tiếng Pháp,…</li>
+</ul>
+<p>Từ một tập dữ liệu thô ban đầu, người dùng sẽ </p>
+</body></html>
     </div>
 
     
@@ -266,7 +285,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-3-Tokenization"><span class="nav-number">1.</span> <span class="nav-text">Bước 3: Tokenization</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-3-Tokenization"><span class="nav-number">1.</span> <span class="nav-text">Bước 3: Tokenization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tokens-la-gi"><span class="nav-number">1.1.</span> <span class="nav-text">Tokens là gì?</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
