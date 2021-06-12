@@ -21,18 +21,16 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Blog &lt;2.4&gt;: Biểu diễn từ ngữ (Text Representation)">
-<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/index.html">
+<meta property="og:title" content="Blog &lt;3.1&gt;: Cơ bản của block chain">
+<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/06/12/basic-of-block-chain/index.html">
 <meta property="og:site_name" content="VN_TECH">
 <meta property="og:locale" content="vi_VN">
-<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/vocab_example.png">
-<meta property="article:published_time" content="2020-08-23T11:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-23T11:05:51.588Z">
+<meta property="article:published_time" content="2020-06-12T13:28:00.000Z">
+<meta property="article:modified_time" content="2021-06-12T13:28:52.476Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/vocab_example.png">
 
-<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/">
+<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/06/12/basic-of-block-chain/">
 
 
 <script id="page-configurations">
@@ -45,7 +43,7 @@
   };
 </script>
 
-  <title>Blog <2.4>: Biểu diễn từ ngữ (Text Representation) | VN_TECH</title>
+  <title>Blog <3.1>: Cơ bản của block chain | VN_TECH</title>
   
 
 
@@ -150,7 +148,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="vi">
-    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-4/">
+    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2020/06/12/basic-of-block-chain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +161,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Blog <2.4>: Biểu diễn từ ngữ (Text Representation)
+          Blog <3.1>: Cơ bản của block chain
         </h1>
 
         <div class="post-meta">
@@ -172,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Tạo lúc</span>
-              
 
-              <time title="Được tạo: 2020-08-23 18:00:00 / Được thay đổi: 18:05:51" itemprop="dateCreated datePublished" datetime="2020-08-23T18:00:00+07:00">2020-08-23</time>
+              <time title="Được tạo: 2020-06-12 20:28:00" itemprop="dateCreated datePublished" datetime="2020-06-12T20:28:00+07:00">2020-06-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Chỉnh sửa vào</span>
+                <time title="Được thay đổi: 2021-06-12 20:28:52" itemprop="dateModified" datetime="2021-06-12T20:28:52+07:00">2021-06-12</time>
+              </span>
 
           
 
@@ -188,43 +192,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><h1 id="Buoc-4-Token-Id-Mapping"><a href="#Buoc-4-Token-Id-Mapping" class="headerlink" title="Bước 4: Token-Id Mapping"></a>Bước 4: Token-Id Mapping</h1><p>Các tokens được sinh ra ở bước 3 sẽ được liên kết với các con số (Ids) thông qua hai cách:</p>
+        <html><head></head><body><h1 id="Co-ban-ve-blockchain"><a href="#Co-ban-ve-blockchain" class="headerlink" title="Cơ bản về blockchain"></a>Cơ bản về blockchain</h1><p>Các khái niệm cơ bản cần biết để hiểu về blockchain</p>
+<p><strong>Lưu ý</strong> : tài liệu này được viết theo ý hiểu của tôi, có thể có sai sót nhưng sẽ dễ hiểu hơn mấy cái viết trên mạng</p>
+<h2 id="Co-so-du-lieu"><a href="#Co-so-du-lieu" class="headerlink" title="Cơ sở dữ liệu"></a>Cơ sở dữ liệu</h2><p>Là kho dữ liệu được lưu trữ trên phần cứng máy tính</p>
+<p>VD : 1 file excel có đầy đủ tên cột và tên hàng cũng được tính là 1 cơ sở dữ liệu</p>
+<h2 id="Quan-ly-co-so-du-lieu"><a href="#Quan-ly-co-so-du-lieu" class="headerlink" title="Quản lý cơ sở dữ liệu"></a>Quản lý cơ sở dữ liệu</h2><p>Hiểu đơn giản là quản lý + cơ sở dữ liệu, bao gồm các thao tác với dữ liệu như thêm dữ liệu, lấy dữ liệu,…. dưới dạng 1 truy vấn</p>
+<p>Truy vấn là lệnh thao tác trên dữ liệu viết dưới dạng ngôn ngữ truy vấn </p>
+<p>VD về truy vấn :<br>Ta có 1 bảng tên là HS chứa thông tin về các học sinh ( tên, mã số )<br>Để lấy dữ liệu về học sinh Mai Gia Long,<br>ta dùng truy vấn bằng ngôn ngữ sql : select * from HS where tên = Mai Gia Long </p>
+<h2 id="Block-chain"><a href="#Block-chain" class="headerlink" title="Block chain"></a>Block chain</h2><p>Block chain là 1 chuỗi các hộp dữ liệu nối đuôi nhau, 1 hộp dữ liệu thường chứa các dữ liệu về giao dịch, tài khoản crypto, tuy nhiên nó có thể chứa các dữ liệu khác bất kỳ, việc nó chứa loại dữ liệu nào tùy thuộc vào từng blockchain </p>
+<p>Blockchain có thể được hiểu là cơ sở dữ liệu</p>
+<p>Có thể được gọi là cơ sở dữ liệu blockchain để phân biệt với cơ sở dữ liệu non-blockchain</p>
+<p>VD: </p>
 <ul>
-<li>Tập từ điển (Vocabulary Lookup)</li>
-<li>Bảng băm (Feature Hashing)</li>
+<li>block chain của bitcoin chỉ chứa các giao dịch</li>
+<li>blockchain của ether chứa các giao dịch, tài khoản crypto, và cả code ( mã chương trình)</li>
 </ul>
-<p>Ids rất cần thiết để biến các tokens thành dạng dữ liệu phù hợp với mô hình. Phần này tôi sẽ nói sau ở bước 5.</p>
-<ol>
-<li>Tập từ điển (Vocabulary Lookup)<br>Sau đây là một tập từ điển:<br><img src="/2020/08/23/text-representation-4/vocab_example.png" alt="Vocabulary"><br>Trong đó:</li>
-</ol>
+<p>Blockchain còn được hiểu là công nghệ blockchain, một công nghệ về quản lý (lưu trữ, truy vấn, thêm dữ liệu) cơ sở dữ liệu phân tán, tuy nhiên trong bài viết này, ta sẽ hiểu blockchain theo nghĩa bên trên</p>
+<h2 id="Phan-tan-Decentralization"><a href="#Phan-tan-Decentralization" class="headerlink" title="Phân tán ( Decentralization )"></a>Phân tán ( Decentralization )</h2><p>Hiểu đơn giản là sự phân tán về địa lý, tài nguyên, quyền lực </p>
+<h2 id="Mang-block-chain"><a href="#Mang-block-chain" class="headerlink" title="Mạng block chain"></a>Mạng block chain</h2><p>Là một mạng lưới các cục máy tính, mỗi cục máy tính khác nhau thuộc sở hữu của một thực thể (người hoặc công ty) khác nhau, các máy tính này sẽ cùng tham gia quản lý  (lưu trữ, truy vấn, thêm dữ liệu) 1 blockchain </p>
+<p>Mạng này có tính chất:</p>
 <ul>
-<li>Cột trái là thứ tự của tokens</li>
-<li>Cột giữa là tokens </li>
-<li>Cột ngoài cùng là tần suất xuất hiện của tokens trong tập dữ liệu</li>
+<li>phân tán về địa lý ( mỗi máy tính nằm ở một nơi khác nhau )</li>
+<li>phân tán về tài nguyên ( mỗi thực thể sở hữu một máy tính )</li>
+<li>phân tán về quyền lực ( không ai có thể tự mình thay đổi block chain, phải có sự đồng thuận của mọi người )</li>
 </ul>
-<p><code>Tôn ngộ không , Tề thiên đại_th@@ ánh đại_náo thiên_@@ cung</code><br><code>[11623, 17539, 17, 4, 19149, 6536, 57035, 2067, 41713, 13454, 1820]</code></p>
-<p>Các tokens ánh xạ song ánh vào các Ids trong tập từ điển.</p>
-<p>Cách 1 này có nhiều điểm hạn chế như là:</p>
+<h2 id="Cong-nghe-blockchain"><a href="#Cong-nghe-blockchain" class="headerlink" title="Công nghệ blockchain"></a>Công nghệ blockchain</h2><p>Là công nghệ sử dụng mạng blockchain để quản lý blockchain </p>
+<p>Đây chính là điểm khác biệt giữa công nghệ blockchain và các công nghệ quản lý cơ sở dữ liệu non-blockchain</p>
+<p>Cơ sở dữ liệu non-blockchain sẽ được quản lý bằng các máy tính thuộc cùng 1 chủ sở hữu </p>
+<p>VD về cơ sở dữ liệu non-blockchain:<br>Một ngân hàng sẽ quản lý cơ sở dữ liệu non-blockchain chứa tài khoản của khách hàng, họ hoàn toàn có thể sửa tài khoản của khách hàng mà chưa được sự cho phép. Không có sự phân tán về tài nguyên và quyền lực vì tất cả tài nguyên đều do 1 thực thể ( ngân hàng ) nắm giữ và một mình ngân hàng có thể thay đổi dữ liệu của cơ sở dữ liệu</p>
+<p>Ưu điểm của công nghệ blockchain:</p>
 <ul>
-<li>Khả năng hiểu từ ngữ của mô hình bị hạn chế bởi tập từ điển. Nếu như tập từ điển chỉ có 30000 từ, mô hình chỉ xử lý được 30000 từ này và gặp lỗi khi xử lý từ nằm ngoài từ điển. Trước kia, để giải quyết vấn đề này, người ta sử dụng tag VD như <unk> (Out-Of-Vocabulary) để đánh dấu cho những từ không biết. Gần đây thì có thêm BPE Encoding hiệu quả hơn nhiều trong việc hiểu các từ nằm ngoài từ điển. <a target="_blank" rel="noopener" href="https://trituenhantao.io/kien-thuc/byte-pair-encoding-vu-khi-bi-mat-cua-nlp-hien-dai/">BPE Encoding</a></unk></li>
-<li>Phải mất công sức để xây dựng một tập từ điển tốt.</li>
-<li>Nếu cứ có từ nào mới thì lại phải thay đổi tập từ điển. Tập từ điển thay đổi thì phải train lại mô hình để mô hình nhận thức được các từ thay đổi đó, … rắc rối.</li>
+<li>Lưu trữ tin cậy</li>
+<li>Trong suốt </li>
+<li>Phân tán quyền lực </li>
+<li>Bảo mật cao</li>
 </ul>
-<p>Dù vậy thì tập từ điển vẫn được sử dụng rất nhiều đến tận bây giờ.</p>
-<ol start="2">
-<li>Bảng băm (Feature Hashing)<br>Bảng băm là kỹ thuật được sinh ra để giải quyết các vấn đề trên của tập từ điển, có một thời rất nổi tiếng.</li>
-</ol>
-<p>Tôi tin rằng những người đọc bài này có kiến thức nền tảng về bảng băm nên sẽ không nhắc lại nó.</p>
-<p>Ý tưởng là cứ khi nào gặp một từ lạ từ điển chưa có thì cho nó vào bảng băm, đồng thời gán cho nó một giá trị băm trong bảng. Hàm băm có khả năng kết nối một dữ liệu độ lớn bất kì (câu, từ) với một giá trị có độ lớn hữu hạn (giá trị băm). Do đó, mô hình sẽ không bao giờ sợ vấn đề Out-Of-Vocabulary.</p>
-<p><code>'Hello' --&gt; hash function --&gt; 784549 </code><br><code>'world' --&gt; hash function --&gt; 019857</code><br><code>'Hello world' --&gt; [784549, 019857]</code></p>
-<p>Ý tưởng này cũng sẽ gặp phải các vấn đề bản chất của bảng băm như xung đột, và không thể truy ngược giá trị hash được.</p>
-<p>Đối với vấn đề 1 thì không quá lo, giá trị băm càng lớn thì càng ít bị xung đột trong mối quan hệ tuyến tính. Ta chấp nhận xung đột, nó cũng không ảnh hưởng quá nhiều đến kết quả. Bài viết sau giải thích rõ tại sao lại như vậy.<br><a target="_blank" rel="noopener" href="https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087">Collision</a><br>VD: giá trị băm <code>1234412494897129479249812894</code> sẽ ít bị xung đột.</p>
-<p>Bảng băm thể hiện nhiều lợi thế rõ rệt so với tập từ điển như là:</p>
-<ul>
-<li>Dễ dàng update tập từ điển dù mô hình sẽ không nhận ra từ được update đó. Điều đó có ảnh hưởng tới kết quả của mô hình dù tôi không rõ là đáng kể hay không.</li>
-<li>Một đặc điểm hay nữa của giá trị băm là nó giúp việc tìm kiếm weights của feature nhanh hơn. Phần “tìm kiếm weights của feature”  nghe có vẻ khá lạ, hiện tại bạn cứ tạm nhớ nó. Tôi sẽ giải thích rõ hơn ở phần 5.</li>
-</ul>
-<p>Tuy Feature Hashing được sinh ra để giải quyết các vấn đề của tập từ điển. Tôi vẫn để ý thấy tập từ điển được sử dụng nhiều hơn trong các mô hình SOTA (State Of The Art). Đối thủ của Feature Hashing có lẽ là BPE Encoding.</p>
+<p>Tại sao blockchain lại có những ưu điểm này ? Hãy tự tìm câu trả lời</p>
 </body></html>
     </div>
 
@@ -239,11 +242,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/08/23/text-representation-3/" rel="prev" title="Blog <2.3>: Biểu diễn từ ngữ (Text Representation)">
-      <i class="fa fa-chevron-left"></i> Blog <2.3>: Biểu diễn từ ngữ (Text Representation)
-    </a></div>
       <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/10/Welcome/" rel="next" title="Blog <1>: Mặt trời mọc ở xứ sở NLP">
+      Blog <1>: Mặt trời mọc ở xứ sở NLP <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -302,7 +305,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-4-Token-Id-Mapping"><span class="nav-number">1.</span> <span class="nav-text">Bước 4: Token-Id Mapping</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Co-ban-ve-blockchain"><span class="nav-number">1.</span> <span class="nav-text">Cơ bản về blockchain</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Co-so-du-lieu"><span class="nav-number">1.1.</span> <span class="nav-text">Cơ sở dữ liệu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quan-ly-co-so-du-lieu"><span class="nav-number">1.2.</span> <span class="nav-text">Quản lý cơ sở dữ liệu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-chain"><span class="nav-number">1.3.</span> <span class="nav-text">Block chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phan-tan-Decentralization"><span class="nav-number">1.4.</span> <span class="nav-text">Phân tán ( Decentralization )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mang-block-chain"><span class="nav-number">1.5.</span> <span class="nav-text">Mạng block chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cong-nghe-blockchain"><span class="nav-number">1.6.</span> <span class="nav-text">Công nghệ blockchain</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

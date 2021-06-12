@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -23,7 +23,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="Blog &lt;2.1&gt;: Biểu diễn từ ngữ (Text Representation)">
 <meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/index.html">
-<meta property="og:site_name" content="VN_NLP">
+<meta property="og:site_name" content="VN_TECH">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/10/text-representation/Overview-of-text-representation.png">
 <meta property="article:published_time" content="2020-08-10T16:45:00.000Z">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Blog <2.1>: Biểu diễn từ ngữ (Text Representation) | VN_NLP</title>
+  <title>Blog <2.1>: Biểu diễn từ ngữ (Text Representation) | VN_TECH</title>
   
 
 
@@ -96,7 +96,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">VN_NLP</h1>
+      <h1 class="site-title">VN_TECH</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -155,11 +155,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Nguyễn Thế Vinh">
-      <meta itemprop="description" content="Hãy học NLP để cống hiến cho "khát vọng Việt Nam 4.0"">
+      <meta itemprop="description" content="Công nghệ là "hơi thở"">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="VN_NLP">
+      <meta itemprop="name" content="VN_TECH">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -198,9 +198,9 @@
 <p><img src="/2020/08/10/text-representation/Overview-of-text-representation.png" alt="Overview"></p>
 <ol>
 <li>Bước 1: Thu thập tập dữ liệu (corpus)</li>
-<li>Bước 2: Xử lý tập dữ liệu (Preprocessing): <a href="/2020/08/23/text-representation-2/" title="Blog <2.2>: Biểu diễn từ ngữ (Text Representation)">Blog <2.2>: Biểu diễn từ ngữ (Text Representation)</a></li>
-<li>Bước 3: Quá trình tokenization (Tokenization): <a href="/2020/08/23/text-representation-3/" title="Blog <2.3>: Biểu diễn từ ngữ (Text Representation)">Blog <2.3>: Biểu diễn từ ngữ (Text Representation)</a></li>
-<li>Bước 4: Liên kết các tokens, kết quả của quá trình tokenization, với các ID. (Token-Id Mapping): <a href="/2020/08/23/text-representation-4/" title="Blog <2.4>: Biểu diễn từ ngữ (Text Representation)">Blog <2.4>: Biểu diễn từ ngữ (Text Representation)</a></li>
+<li>Bước 2: Xử lý tập dữ liệu (Preprocessing): <a href="/2020/08/23/text-representation-2/" title="Blog <2.2>: Biểu diễn từ ngữ (Text Representation)">Blog &lt;2.2&gt;: Biểu diễn từ ngữ (Text Representation)</a></li>
+<li>Bước 3: Quá trình tokenization (Tokenization): <a href="/2020/08/23/text-representation-3/" title="Blog <2.3>: Biểu diễn từ ngữ (Text Representation)">Blog &lt;2.3&gt;: Biểu diễn từ ngữ (Text Representation)</a></li>
+<li>Bước 4: Liên kết các tokens, kết quả của quá trình tokenization, với các ID. (Token-Id Mapping): <a href="/2020/08/23/text-representation-4/" title="Blog <2.4>: Biểu diễn từ ngữ (Text Representation)">Blog &lt;2.4&gt;: Biểu diễn từ ngữ (Text Representation)</a></li>
 <li>Bước 5: Biến đổi các ID thành các đầu vào (inputs) cho mô hình NLP xử lý. (Inputs)</li>
 </ol>
 <h1 id="Buoc-1-Thu-thap-tap-du-lieu"><a href="#Buoc-1-Thu-thap-tap-du-lieu" class="headerlink" title="Bước 1: Thu thập tập dữ liệu"></a>Bước 1: Thu thập tập dữ liệu</h1><p>Tại sao các mô hình Deep Learning lại cần tập dữ liệu? (điều kiện cần)</p>
@@ -248,7 +248,7 @@
 <li>Ban đầu làm ngẫu nhiên, đánh giá sai sót của hoạt động đó, và sửa sai để đúng hơn. Lặp lại hành động đến khi bài toán được giải quyết.</li>
 </ol>
 <p>Việc huấn luyện mô hình Deep Learning là theo phương pháp số 2.</p>
-<p>Mô hình Deep Learning ban đầu được khởi tạo ngẫu nhiên –> xử lý tập dữ liệu –> ra kết quả –> đánh giá kết quả đấy xem có đủ tốt, học hỏi sai sót –> sai sót được một thuật toán tối ưu hóa sửa sai –> Mô hình Deep Learning tốt hơn –> xử lý tập dữ liệu –> …</p>
+<p>Mô hình Deep Learning ban đầu được khởi tạo ngẫu nhiên –&gt; xử lý tập dữ liệu –&gt; ra kết quả –&gt; đánh giá kết quả đấy xem có đủ tốt, học hỏi sai sót –&gt; sai sót được một thuật toán tối ưu hóa sửa sai –&gt; Mô hình Deep Learning tốt hơn –&gt; xử lý tập dữ liệu –&gt; …</p>
 <p>Quá trình trên chính là quá trình học. Trong đó, đoạn xử lý tập dữ liệu là một đoạn quan trọng. Giả sử, ta có tập dữ liệu gồm a, b, c, d, e, f. Model xử lý a ra A với sai sót A’. Từ sai sót A’ đó model học cách sửa sai A’. Model tiếp tục xử lý a ra A với sai sót A’ sẽ thừa thãi vì model đã học A’. Model xử lý những dữ liệu b, c, d, e, f khác thì model mới học thêm. Do đó, càng nhiều dữ liệu thì model càng học thêm được nhiều, tránh bị lặp lại. Model học được nhiều hơn dẫn tới một mức đủ nào đó tiệm cận với model tổng quát - kết quả cuối cùng.</p>
 <h2 id="Thu-thap-du-lieu-vo-van-thi-sao"><a href="#Thu-thap-du-lieu-vo-van-thi-sao" class="headerlink" title="Thu thập dữ liệu vớ vẩn thì sao?"></a>Thu thập dữ liệu vớ vẩn thì sao?</h2><p>Những use - cases trên giúp ta thấy được rằng việc thu thập tập dữ liệu là cần thiết. Cần thiết nhưng có quan trọng? Thu thập dữ liệu cho nó xong thì sao?</p>
 <p>Một bài toán NLP tiếng việt, một model tiếng việt, một tập từ điển tiếng việt, ta cho model đó dữ liệu tiếng anh để xử lý. Model tra tập từ điển tiếng việt cho tập dữ liệu tiếng anh. Model tra fail vì từ điển tiếng việt không có tiếng anh. Fail.</p>
@@ -263,7 +263,7 @@
 <li>Mức độ dễ:<br>Mỗi nhiệm vụ NLP nổi tiếng (Question Answering, Natural Language Inference, …) thường có vài tập dữ liệu được tạo sẵn sẵn sàng sử dụng cho model. Các tập dữ liệu này đa phần đã được tiền xử lý sẵn, ta chỉ cần xác định rõ nhiệm vụ NLP và tìm tập dữ liệu tương ứng. Hãy Google!</li>
 </ol>
 <ul>
-<li>Hãy xác định tập dữ liệu cho Question Answering: tra google –> gõ “datasets for QA”</li>
+<li>Hãy xác định tập dữ liệu cho Question Answering: tra google –&gt; gõ “datasets for QA”</li>
 <li>Hãy xác định tập dữ liệu cho Natural Language Inference</li>
 </ul>
 <ol start="2">
@@ -365,14 +365,14 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Nguyễn Thế Vinh</p>
-  <div class="site-description" itemprop="description">Hãy học NLP để cống hiến cho "khát vọng Việt Nam 4.0"</div>
+  <div class="site-description" itemprop="description">Công nghệ là "hơi thở"</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">bài viết</span>
         </a>
       </div>
@@ -400,7 +400,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

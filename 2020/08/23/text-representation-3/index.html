@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -23,12 +23,14 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="Blog &lt;2.3&gt;: Biểu diễn từ ngữ (Text Representation)">
 <meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-3/index.html">
-<meta property="og:site_name" content="VN_NLP">
+<meta property="og:site_name" content="VN_TECH">
 <meta property="og:locale" content="vi_VN">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-3/dict.png">
 <meta property="article:published_time" content="2020-08-23T10:30:00.000Z">
-<meta property="article:modified_time" content="2020-09-06T04:35:38.030Z">
+<meta property="article:modified_time" content="2020-09-06T14:37:41.478Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-3/dict.png">
 
 <link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-3/">
 
@@ -43,7 +45,7 @@
   };
 </script>
 
-  <title>Blog <2.3>: Biểu diễn từ ngữ (Text Representation) | VN_NLP</title>
+  <title>Blog <2.3>: Biểu diễn từ ngữ (Text Representation) | VN_TECH</title>
   
 
 
@@ -94,7 +96,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">VN_NLP</h1>
+      <h1 class="site-title">VN_TECH</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -153,11 +155,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Nguyễn Thế Vinh">
-      <meta itemprop="description" content="Hãy học NLP để cống hiến cho "khát vọng Việt Nam 4.0"">
+      <meta itemprop="description" content="Công nghệ là "hơi thở"">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="VN_NLP">
+      <meta itemprop="name" content="VN_TECH">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -178,7 +180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2020-09-06 11:35:38" itemprop="dateModified" datetime="2020-09-06T11:35:38+07:00">2020-09-06</time>
+                <time title="Được thay đổi: 2020-09-06 21:37:41" itemprop="dateModified" datetime="2020-09-06T21:37:41+07:00">2020-09-06</time>
               </span>
 
           
@@ -195,6 +197,7 @@
         <html><head></head><body><h1 id="Buoc-3-Tokenization"><a href="#Buoc-3-Tokenization" class="headerlink" title="Bước 3: Tokenization"></a>Bước 3: Tokenization</h1><p>Tokens là đơn vị cơ bản nhất trong NLP. Mọi văn bản, dữ liệu đều phải biến về tokens trước khi được model xử lý qua. Quá trình biến đó được gọi là Tokenization.</p>
 <h2 id="Tokens-la-gi"><a href="#Tokens-la-gi" class="headerlink" title="Tokens là gì?"></a>Tokens là gì?</h2><p>Token dịch sang tiếng việt là biểu tượng tượng trưng. Trong câu “Trời đẹp quá”, tokens sẽ là “Trời”, “đẹp”, “quá”. Tokens gồm có ba mức:</p>
 <ul>
+<li>Sentence - level tokens = tokens cấp độ câu = “I am stronger”</li>
 <li>Word - level tokens = tokens cấp độ từ = “Stronger”</li>
 <li>Character - level tokens = tokens cấp độ chữ cái, kí tự = “S”, “t”, “r”, “o”, “n”, “g”, “e”, “r” (có ý nghĩa hơn trong tiếng Trung, các ngôn ngữ tượng hình)</li>
 <li>Subword - level tokens = tokens cấp độ từ phụ trợ = “strong”, “er” (có ý nghĩa hơn trong các ngôn ngữ hay liên kết nhiều từ (compound) như tiếng Anh, tiếng Đức, …)</li>
@@ -204,7 +207,30 @@
 <li>Đối với tiếng Trung:你叫什麼名字 (Bạn tên là gì?), các kí tự xếp ngay sát nhau, không phân tách như hệ chữ Latin. Mỗi kí tự trong tiếng Trung lại mang một ý nghĩa. Suy nghĩ kiểu word - level tokens là tokens là sai bét.</li>
 <li>Đối với tiếng Đức: Rechtsschutzversicherungsgesellschaften, đây là một danh từ nghĩa là “công ty bảo hiểm”. Tiếng Đức có rất nhiều từ kết hợp như vậy, ta phải phân tách thành các từ phụ trợ mới xử lý được. Tư duy kiểu word - level tokens là tokens sẽ rất hạn chế khi áp dụng cho tiếng Anh, tiếng Đức, tiếng Pháp,…</li>
 </ul>
-<p>Từ một tập dữ liệu thô ban đầu, người dùng sẽ </p>
+<p>Mục tiêu của các tokens này là để tạo ra một tập từ điển (vocabularary). Tập từ điển đó sẽ được sử dụng để biến văn bản ở dạng ngôn ngữ tự nhiên thành dạng số phù hợp cho model xử lý (index - mapping).<br>“Hello”,”the”,”world” –&gt; 123,234,345.</p>
+<h2 id="Xay-dung-tap-tu-dien-vocabularary"><a href="#Xay-dung-tap-tu-dien-vocabularary" class="headerlink" title="Xây dựng tập từ điển (vocabularary)"></a>Xây dựng tập từ điển (vocabularary)</h2><p><img src="/2020/08/23/text-representation-3/dict.png" alt="Dictionary"></p>
+<p>Trong tập từ điển trên:</p>
+<ul>
+<li>Cột bên trái là index mà tokens sẽ được map tới:<ul>
+<li>“,” –&gt; 1</li>
+<li>“là” –&gt; 5</li>
+<li>“những” –&gt; 18</li>
+</ul>
+</li>
+<li>Cột ở giữa là tokens</li>
+<li>Cột bên phải là tần suất xuất hiện của các tokens trong tập dữ liệu ban đầu.</li>
+</ul>
+<p>Ta áp dụng quá trình tokenization lên tập dữ liệu ban đầu và thu về được các tokens. Ta áp dụng các phương pháp sampling, cụ thể là top K Frequency trong bảng trên, để chọn các tokens sẽ xuất hiện trong tập từ điển. Tokens nào xuất hiện càng nhiều càng đứng gần đầu.</p>
+<h2 id="Bo-tokenizer"><a href="#Bo-tokenizer" class="headerlink" title="Bộ tokenizer"></a>Bộ tokenizer</h2><p>Như đã đề cập ở trên, quá trình tokenization là quá trình biến đổi từ ngôn ngữ tự nhiên thành các tokens. Quá trình này được thực hiện bởi một bộ tokenizer.</p>
+<p>Tương ứng với ba cấp độ trên của tokens, bộ tokenizer cũng có ba cấp độ:</p>
+<ul>
+<li>Word - level tokenizer</li>
+<li>Character - level tokenizer</li>
+<li>Subword - level tokenizer</li>
+</ul>
+<ol>
+<li>Word - level tokenizer</li>
+</ol>
 </body></html>
     </div>
 
@@ -285,21 +311,21 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-3-Tokenization"><span class="nav-number">1.</span> <span class="nav-text">Bước 3: Tokenization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tokens-la-gi"><span class="nav-number">1.1.</span> <span class="nav-text">Tokens là gì?</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-3-Tokenization"><span class="nav-number">1.</span> <span class="nav-text">Bước 3: Tokenization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tokens-la-gi"><span class="nav-number">1.1.</span> <span class="nav-text">Tokens là gì?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xay-dung-tap-tu-dien-vocabularary"><span class="nav-number">1.2.</span> <span class="nav-text">Xây dựng tập từ điển (vocabularary)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bo-tokenizer"><span class="nav-number">1.3.</span> <span class="nav-text">Bộ tokenizer</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Nguyễn Thế Vinh</p>
-  <div class="site-description" itemprop="description">Hãy học NLP để cống hiến cho "khát vọng Việt Nam 4.0"</div>
+  <div class="site-description" itemprop="description">Công nghệ là "hơi thở"</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">bài viết</span>
         </a>
       </div>
@@ -327,7 +353,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
