@@ -27,7 +27,7 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/MikeTrolleyFace.jpg">
 <meta property="article:published_time" content="2021-07-12T22:33:27.000Z">
-<meta property="article:modified_time" content="2021-07-13T01:52:52.325Z">
+<meta property="article:modified_time" content="2021-07-13T02:04:54.953Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/MikeTrolleyFace.jpg">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Tạo lúc</span>
               
 
-              <time title="Được tạo: 2021-07-13 05:33:27 / Được thay đổi: 08:52:52" itemprop="dateCreated datePublished" datetime="2021-07-13T05:33:27+07:00">2021-07-13</time>
+              <time title="Được tạo: 2021-07-13 05:33:27 / Được thay đổi: 09:04:54" itemprop="dateCreated datePublished" datetime="2021-07-13T05:33:27+07:00">2021-07-13</time>
             </span>
 
           
@@ -214,15 +214,10 @@
 <p>POW coin là một vật đại diện cho sức lực bỏ ra để thực hiện thử thách. Để dễ hiểu, vận động viên C quyết định nhảy dây 10 tiếng đồng hồ. 10 tiếng đồng hồ nhảy dây đó có thể được sử dụng để chứng minh cho B thấy là “tôi đã thực hiện thử thách nhảy dây 20 lần” (2 thử thách = 1 tiếng nhảy dây). POW coin sẽ đại diện cho công sức nhảy dây của vận động viên C. Coi 1 POW coin = 30 phút nhảy dây. 10 tiếng đồng hồ nhảy nghĩa là 20 POW coin. Sau đấy, A có thể đưa 1 POW coin cho B để chứng minh là: “tôi đã thực hiện thử thách 1 lần”.</p>
 <p>Cứ như vậy, POW coin có thể được sử dụng để dễ dàng chứng minh nhanh chóng POW. Vận động viên nhảy dây liên tục để sinh ra thêm POW coin, còn khách hàng A sử dụng POW coin để chứng minh POW. </p>
 <h1 id="III-Proof-of-Work-trong-block-chain"><a href="#III-Proof-of-Work-trong-block-chain" class="headerlink" title="III. Proof of Work trong block chain"></a>III. Proof of Work trong block chain</h1><p>Bitcoin là một dạng POW coin<br>Trong đó, những người thợ đào là “vận động viên nhảy dây”, họ sẽ bỏ tài nguyên máy tính để tính toán và thu lại bitcoin (đại diện cho công sức tính toán của họ). </p>
-<p>Tại sao lại cần block chain? </p>
-<ol>
-<li>Chống double - spending:<br>POW coin bị gặp một tình huống như sau. Lần này có hai người bán đồ ăn, B bán xúc xích và C bán bánh mỳ. A là một tay tạo tiền giả rất giỏi, A đã tạo ra thêm 1 đồng POW giả nữa giống y hệt đồng POW gốc. Như vậy, A có trong tay hai đồng POW giống hệt nhau. A đưa 1 POW thật cho B và 1 POW giả cho C. Tại vì, POW giả giống y hệt POW thật, C kiểm tra POW vẫn thấy bình thường. A mỉm cười ra về với chiếc bánh mỳ kẹp xúc xích trong tay. TÌnh huống này được gọi là double - spending.</li>
-</ol>
+<p>Tại sao lại cần block chain?<br><strong>1. Chống double - spending:</strong><br>POW coin bị gặp một tình huống như sau. Lần này có hai người bán đồ ăn, B bán xúc xích và C bán bánh mỳ. A là một tay tạo tiền giả rất giỏi, A đã tạo ra thêm 1 đồng POW giả nữa giống y hệt đồng POW gốc. Như vậy, A có trong tay hai đồng POW giống hệt nhau. A đưa 1 POW thật cho B và 1 POW giả cho C. Tại vì, POW giả giống y hệt POW thật, C kiểm tra POW vẫn thấy bình thường. A mỉm cười ra về với chiếc bánh mỳ kẹp xúc xích trong tay. TÌnh huống này được gọi là double - spending.</p>
 <p>Block chain ngăn cản việc đấy. Chi tiết thế nào, phạm vi của bài viết này sẽ không đề cập tới. Các bạn chỉ cần nhớ là block chain ngăn cản double - spending.</p>
 <p>Vẫn VD trên nhưng thêm việc mua xúc xích được ghi vào 1 sổ cái. A tạo ra một coin giả giống hệt coin thật. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Lúc đấy, C sẽ thấy là: “ủa, POW này được thanh toán để mua xúc xích rồi mà”. Huhu, A đã bị C lộ tẩy và chỉ có được cái xúc xích.</p>
-<ol start="2">
-<li>Chống sửa sổ cái:<br>Vẫn VD trên nhưng thêm việc A là người nhà của C. A tạo ra một coin giả giống hệt coin thật. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Tuy nhiên, do A là người nhà của C, C đã quyết định sửa sổ cái, gạch giao dịch mua xúc xích đi. Như vậy, A vẫn mua được bánh mỳ từ C. A mỉm cười ra về với chiếc bánh mỳ kẹp xúc xích trong tay. </li>
-</ol>
+<p><strong>2. Chống sửa sổ cái:</strong><br>Vẫn VD trên nhưng thêm việc A là người nhà của C. A tạo ra một coin giả giống hệt coin thật. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Tuy nhiên, do A là người nhà của C, C đã quyết định sửa sổ cái, gạch giao dịch mua xúc xích đi. Như vậy, A vẫn mua được bánh mỳ từ C. A mỉm cười ra về với chiếc bánh mỳ kẹp xúc xích trong tay. </p>
 <p>Block chain ngăn cản việc đấy. Chi tiết thế nào, phạm vi của bài viết này sẽ không đề cập tới. Các bạn chỉ cần nhớ là block chain chống việc sửa sổ cái.</p>
 <p>Vẫn VD trên nhưng thêm việc sổ cái giờ được giữ bởi rất nhiều người. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. B thông báo cho cả làng biết về giao dịch này và ghi vào 7 sổ cái của 7 người khác. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Tuy nhiên, dù C là người nhà của A, C không thể thay đổi sổ cái được vì như vậy sẽ khác với sổ cái của 6 người khác. Lúc đấy, C sẽ bị phạt. A đành phải ra về với cái xúc xích.</p>
 <h1 id="IV-Tong-ket-3-muc"><a href="#IV-Tong-ket-3-muc" class="headerlink" title="IV. Tổng kết 3 mục"></a>IV. Tổng kết 3 mục</h1><p>Đây là tổng quát cách Proof - of - work được sử dụng trong block chain.</p>
