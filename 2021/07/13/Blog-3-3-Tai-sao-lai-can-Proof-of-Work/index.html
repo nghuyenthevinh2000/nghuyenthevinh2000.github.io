@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nghuyenthevinh2000.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Blog &lt;3.3&gt;: Tại sao lại cần Proof of Work">
+<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/index.html">
+<meta property="og:site_name" content="VN_TECH">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/MikeTrolleyFace.jpg">
+<meta property="article:published_time" content="2021-07-12T22:33:27.000Z">
+<meta property="article:modified_time" content="2021-07-13T01:48:23.850Z">
+<meta property="article:author" content="Nguyễn Thế Vinh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/MikeTrolleyFace.jpg">
+
+<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'vi'
+  };
+</script>
+
+  <title>Blog <3.3>: Tại sao lại cần Proof of Work | VN_TECH</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Thanh điều hướng chuyển đổi">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">VN_TECH</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Trang Chủ</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Lưu Trữ</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="vi">
+    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nguyễn Thế Vinh">
+      <meta itemprop="description" content="Công nghệ là "hơi thở"">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VN_TECH">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Blog <3.3>: Tại sao lại cần Proof of Work
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Tạo lúc</span>
+              
+
+              <time title="Được tạo: 2021-07-13 05:33:27 / Được thay đổi: 08:48:23" itemprop="dateCreated datePublished" datetime="2021-07-13T05:33:27+07:00">2021-07-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body><h1 id="Chi-muc"><a href="#Chi-muc" class="headerlink" title="Chỉ mục"></a>Chỉ mục</h1><ol>
+<li>Proof of Work là gì?</li>
+<li>Tái sử dụng Proof of Work</li>
+<li>Proof of Work trong block chain</li>
+<li>Tổng kết 3 mục</li>
+</ol>
+<h1 id="I-Proof-of-Work-la-gi"><a href="#I-Proof-of-Work-la-gi" class="headerlink" title="I. Proof of Work là gì?"></a>I. Proof of Work là gì?</h1><p>Proof of Work là một cơ chế đồng thuận trong đó người A (người yêu cầu dịch vụ) sẽ chứng minh cho người B (người cung cấp dịch vụ) là “người A đã thực hiện một số lượng công việc nhất định được người B giao cho”. </p>
+<h2 id="Tai-sao-lai-phai-chung-minh"><a href="#Tai-sao-lai-phai-chung-minh" class="headerlink" title="Tại sao lại phải chứng minh?"></a>Tại sao lại phải chứng minh?</h2><p>Hãy tưởng tượng rằng có một đội quân 10000 thực thể A, A’, A’’, A’’’, … (1 con người và 9999 bot). Tất cả họ đều yêu cầu người B phải cung cấp đồ ăn. Đội quân 9999 bot sẽ liên tục chen chúc nhau lấy đồ ăn từ B làm cho 1 con người A không thể  nào lấy đồ ăn từ B. Điều này thật sự là tệ hại vì con người A sẽ chết đói.</p>
+<ul>
+<li>9999 bot: lấy đồ ăn —&gt; lấy đồ ăn —&gt; lấy đồ ăn —&gt; lấy đồ ăn —&gt; lấy đồ ăn —&gt; lấy đồ ăn —&gt; lấy đồ ăn —&gt; lấy đồ ăn —&gt; </li>
+<li>con người:<br><img src="/2021/07/13/Blog-3-3-Tai-sao-lai-can-Proof-of-Work/MikeTrolleyFace.jpg" alt="mike_trolley_face"></li>
+</ul>
+<p>Do đó, B cần phải có một phương pháp để tìm xem ai là robot, ai là con người.</p>
+<p>Quay lại với thực tế của công nghệ thông tin, 9999 con bot kia đa phần sẽ đến từ cùng một nhà (dành cho geek: cùng một địa chỉ IP). Mỗi người trên internet đều có một nhà (dành cho geek: mỗi người trên internet đều được gán một địa chỉ IP định danh). B bây giờ sẽ áp đặt một luật như sau: Mỗi nhà sẽ phải thực hiện một thử thách nhảy dây tầm 30 phút thì mới nhận được một đồ ăn. </p>
+<p>Gọi “BOT HOME” là nhà của 9999 bot, “HUMAN HOME” là nhà của 1 con người.</p>
+<ul>
+<li>“BOT HOME”: làm thử thách —&gt; lấy đồ ăn | —&gt; làm thử thách |  chờ      | —&gt; lấy đồ ăn </li>
+<li>“HUMAN HOME 1”: làm thử thách | chờ      |—&gt; lấy đồ ăn |</li>
+<li>“HUMAN HOME 2”: làm thử thách |           chờ            | —&gt; lấy đồ ăn |</li>
+</ul>
+<p>Như vậy thì cuối cùng con người cũng có thể lấy đồ ăn.<br>Hơn nữa, nó giảm thiểu đáng kể việc lấy đồ ăn của BOT. Như ở VD đầu, BOT có thể lấy hàng loạt đồ ăn. Giờ đây, BOT chỉ lấy được đồ ăn có vài lần. Nếu như ta để như sau, lấy càng nhiều đồ ăn, thử thách càng khó. Như vậy, BOT sẽ càng ngày càng phải thực hiện các thử thách khó hơn để lấy đồ ăn. Do đó, Proof of Work chống sự yêu cầu ồ ạt của BOT rất tốt (dành cho geek: denial-of-service attacks, spamming)</p>
+<h1 id="II-Tai-su-dung-Proof-of-Work"><a href="#II-Tai-su-dung-Proof-of-Work" class="headerlink" title="II. Tái sử dụng Proof of Work"></a>II. Tái sử dụng Proof of Work</h1><p>Proof of Work là một cơ chế đồng thuận trong đó người A (người yêu cầu dịch vụ) sẽ chứng minh cho người B (người cung cấp dịch vụ) là “người A đã thực hiện một số lượng công việc nhất định được người B giao cho”. Người A sẽ phải thực hiện tính toán kể cả đang cần gấp. Hãy tưởng tượng như sau, người A đang rất đói, sức cùng lực kiệt và yêu cầu đồ ăn từ người B. Thế nhưng, người B lại yêu cầu A phải thực hiện thử thách nhảy dây trong vòng 30 phút thì mới đưa đồ ăn. Thật là khổ sở cho người A. </p>
+<p>Nhưng không sao, may cho A, A có thể sử dụng “Proof Of Work (POW) coin” để chứng minh cho B rằng A đã thực hiện thử thách. </p>
+<p>POW coin là một vật đại diện cho sức lực bỏ ra để thực hiện thử thách. Để dễ hiểu, vận động viên C quyết định nhảy dây 10 tiếng đồng hồ. 10 tiếng đồng hồ nhảy dây đó có thể được sử dụng để chứng minh cho B thấy là “tôi đã thực hiện thử thách nhảy dây 20 lần” (2 thử thách = 1 tiếng nhảy dây). POW coin sẽ đại diện cho công sức nhảy dây của vận động viên C. Coi 1 POW coin = 30 phút nhảy dây. 10 tiếng đồng hồ nhảy nghĩa là 20 POW coin. Sau đấy, A có thể đưa 1 POW coin cho B để chứng minh là: “tôi đã thực hiện thử thách 1 lần”.</p>
+<p>Cứ như vậy, POW coin có thể được sử dụng để dễ dàng chứng minh nhanh chóng POW. Vận động viên nhảy dây liên tục để sinh ra thêm POW coin, còn khách hàng A sử dụng POW coin để chứng minh POW. </p>
+<h1 id="III-Proof-of-Work-trong-block-chain"><a href="#III-Proof-of-Work-trong-block-chain" class="headerlink" title="III. Proof of Work trong block chain"></a>III. Proof of Work trong block chain</h1><p>Bitcoin là một dạng POW coin<br>Trong đó, những người thợ đào là “vận động viên nhảy dây”, họ sẽ bỏ tài nguyên máy tính để tính toán và thu lại bitcoin (đại diện cho công sức tính toán của họ). </p>
+<p>Tại sao lại cần block chain? </p>
+<ol>
+<li>Chống double - spending:<br>POW coin bị gặp một tình huống như sau. Lần này có hai người bán đồ ăn, B bán xúc xích và C bán bánh mỳ. A là một tay tạo tiền giả rất giỏi, A đã tạo ra thêm 1 đồng POW giả nữa giống y hệt đồng POW gốc. Như vậy, A có trong tay hai đồng POW giống hệt nhau. A đưa 1 POW thật cho B và 1 POW giả cho C. Tại vì, POW giả giống y hệt POW thật, C kiểm tra POW vẫn thấy bình thường. A mỉm cười ra về với chiếc bánh mỳ kẹp xúc xích trong tay. TÌnh huống này được gọi là double - spending.</li>
+</ol>
+<p>Block chain ngăn cản việc đấy. Chi tiết thế nào, phạm vi của bài viết này sẽ không đề cập tới. Các bạn chỉ cần nhớ là block chain ngăn cản double - spending.</p>
+<p>Vẫn VD trên nhưng thêm việc mua xúc xích được ghi vào 1 sổ cái. A tạo ra một coin giả giống hệt coin thật. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Lúc đấy, C sẽ thấy là: “ủa, POW này được thanh toán để mua xúc xích rồi mà”. Huhu, A đã bị C lộ tẩy và chỉ có được cái xúc xích.</p>
+<ol start="2">
+<li>Chống sửa sổ cái:<br>Vẫn VD trên nhưng thêm việc A là người nhà của C. A tạo ra một coin giả giống hệt coin thật. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Tuy nhiên, do A là người nhà của C, C đã quyết định sửa sổ cái, gạch giao dịch mua xúc xích đi. Như vậy, A vẫn mua được bánh mỳ từ C. A mỉm cười ra về với chiếc bánh mỳ kẹp xúc xích trong tay. </li>
+</ol>
+<p>Block chain ngăn cản việc đấy. Chi tiết thế nào, phạm vi của bài viết này sẽ không đề cập tới. Các bạn chỉ cần nhớ là block chain chống việc sửa sổ cái.</p>
+<p>Vẫn VD trên nhưng thêm việc sổ cái giờ được giữ bởi rất nhiều người. A trả POW thật cho B để mua xúc xích, giao dịch này được ghi vào sổ cái. B thông báo cho cả làng biết về giao dịch này và ghi vào 7 sổ cái của 7 người khác. A trả POW giả cho C để mua bánh mỳ, giao dịch này được ghi vào sổ cái. Tuy nhiên, dù C là người nhà của A, C không thể thay đổi sổ cái được vì như vậy sẽ khác với sổ cái của 6 người khác. Lúc đấy, C sẽ bị phạt. A đành phải ra về với cái xúc xích.</p>
+<h1 id="IV-Tong-ket-3-muc"><a href="#IV-Tong-ket-3-muc" class="headerlink" title="IV. Tổng kết 3 mục"></a>IV. Tổng kết 3 mục</h1><p>Đây là tổng quát cách Proof - of - work được sử dụng trong block chain.</p>
+<ul>
+<li>Chương I: Khi một người dùng thực hiện một giao dịch. Giao dịch đó cần phải được xác nhận và đảm bảo. Người dùng cần thực hiện Proof - of - Work để chứng minh giao dịch đó.</li>
+<li>Chương II: Tuy nhiên, người dùng không phải ai cũng có một dàn máy siêu to khổng lồ để chạy thuật toán Proof - of - Work. Lúc này, giao dịch đó sẽ được gom nhóm bởi các trung tâm đào coin (miner), nơi có những cỗ máy không lồ để chạy thuật toán Proof - of - Work. Miner đó sẽ được thưởng một khoản bitcoin vì đã chạy thuật toán Proof - of Work. (Bitcoin đó là đại diện cho công sức đào coin của họ)</li>
+<li>Chương III: Giao dịch được chứng minh bởi Proof - of - Work sẽ được thêm block vào hệ thống block chain. Thay đổi tới block sẽ được thông báo tới toàn thể  các node trong chain. Giao dịch sẽ nằm mãi ở trên chain. </li>
+</ul>
+</body></html>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/12/blurt-deploy-guide/" rel="prev" title="Blog <3.2>: Triển khai Blurt lên PI">
+      <i class="fa fa-chevron-left"></i> Blog <3.2>: Triển khai Blurt lên PI
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Mục Lục
+        </li>
+        <li class="sidebar-nav-overview">
+          Tổng Quan
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chi-muc"><span class="nav-number">1.</span> <span class="nav-text">Chỉ mục</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-Proof-of-Work-la-gi"><span class="nav-number">2.</span> <span class="nav-text">I. Proof of Work là gì?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tai-sao-lai-phai-chung-minh"><span class="nav-number">2.1.</span> <span class="nav-text">Tại sao lại phải chứng minh?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#II-Tai-su-dung-Proof-of-Work"><span class="nav-number">3.</span> <span class="nav-text">II. Tái sử dụng Proof of Work</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#III-Proof-of-Work-trong-block-chain"><span class="nav-number">4.</span> <span class="nav-text">III. Proof of Work trong block chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IV-Tong-ket-3-muc"><span class="nav-number">5.</span> <span class="nav-text">IV. Tổng kết 3 mục</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nguyễn Thế Vinh</p>
+  <div class="site-description" itemprop="description">Công nghệ là "hơi thở"</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">bài viết</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nguyễn Thế Vinh</span>
+</div>
+  <div class="powered-by">Cung cấp bởi <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
