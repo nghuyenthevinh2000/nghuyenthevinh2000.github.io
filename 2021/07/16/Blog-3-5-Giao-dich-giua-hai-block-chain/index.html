@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/PortableAssets.png">
 <meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/CustodianBridges.png">
 <meta property="article:published_time" content="2021-07-16T01:44:10.000Z">
-<meta property="article:modified_time" content="2021-07-18T02:48:11.526Z">
+<meta property="article:modified_time" content="2021-07-18T02:52:47.467Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/InterBlockchain.png">
@@ -183,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2021-07-18 09:48:11" itemprop="dateModified" datetime="2021-07-18T09:48:11+07:00">2021-07-18</time>
+                <time title="Được thay đổi: 2021-07-18 09:52:47" itemprop="dateModified" datetime="2021-07-18T09:52:47+07:00">2021-07-18</time>
               </span>
 
           
@@ -236,7 +236,7 @@
 <p>Cách này vẫn chỉ có hai người là A và B nên có thể nói là cách giao dịch cần ít sự tin tưởng nhất.</p>
 <h3 id="Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts"><a href="#Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts" class="headerlink" title="Warning (Brain f*ck): technical side for geeks and enthusiasts"></a>Warning (Brain f*ck): technical side for geeks and enthusiasts</h3><p>Well, you have been warned :D<br>Phần này sẽ giải thích về hoạt động của cơ chế Atomic Swaps</p>
 <ol>
-<li><strong>Hash-locks</strong>:</li>
+<li>Hash-locks:</li>
 </ol>
 <ul>
 <li><strong>Hash function</strong>: cơ chế này sử dụng hash function.<br>Định nghĩa H(x) là hash function. x là bản rõ. y là bản mật. H(x) = y. </li>
@@ -269,8 +269,8 @@
 <p>B sẽ thu và mở khóa E(Sa,k): D(E(Sa,k),k) = Sa và lấy được 5 đô la.</p>
 <p>A sẽ thu và mở khóa E(Sb, H(k)): D(E(Sb, H(k)), H(k)) = Sb và lấy được xúc xích.</p>
 <p>A và B đều vui vẻ.</p>
-<ol>
-<li><strong>Timeouts</strong>:<br>Vẫn giả sử ở trên, nếu như A quyết định không bao giờ đưa khóa k cho B. Giao dịch sẽ bị khóa mãi mãi. Cho nên, giá trị timeout được thêm vào để nếu quá thời gian này, giao dịch sẽ bị hủy và hoàn trả tiền cho A và B. </li>
+<ol start="2">
+<li>Timeouts:<br>Vẫn giả sử ở trên, nếu như A quyết định không bao giờ đưa khóa k cho B. Giao dịch sẽ bị khóa mãi mãi. Cho nên, giá trị timeout được thêm vào để nếu quá thời gian này, giao dịch sẽ bị hủy và hoàn trả tiền cho A và B. </li>
 </ol>
 <h3 id="Luu-y"><a href="#Luu-y" class="headerlink" title="Lưu ý:"></a>Lưu ý:</h3><p>Nếu như A quyết định chờ cho gần hết timeout mới đưa khóa cho B, A nếu nhanh tay có thể mở khóa giao dịch trước khi B kịp mở. Timeout diễn ra, Sa bị hoàn trả. A giờ có cả 5 đô la và xúc xích trong tay. B không được gì. </p>
 <p>Tình huống này hơi cục súc nhưng hoàn toàn có thể nếu như A nhanh tay hơn timeout và B chậm tay hơn timeout.</p>
@@ -302,9 +302,7 @@
 <p>Giả sử A có hai ví điện tử trên bitcoin(btc) (Ví Wbtc) và etherum(eth) (Ví Weth). A muốn chuyển BTC sang ETH. A sẽ đưa 1 BTC cho nhà cung cấp dịch vụ (Service Provider) (SP). SP sau đấy sẽ <strong>ĐẢM BẢO bất động</strong> 1 BTC đó, <strong>ĐẢM BẢO kích hoạt</strong> 16.7 ETH. Tiếp đó, SP sẽ đưa 16.7 ETH đó cho A. </p>
 <p>Hai cách <strong>Atomic Swaps</strong> và <strong>Portable Assets</strong> là hai cách phi tập trung. Cách <strong>Custodian Bridges</strong> là cách tập trung. </p>
 <h3 id="Luu-y-2"><a href="#Luu-y-2" class="headerlink" title="Lưu ý:"></a>Lưu ý:</h3><p>Có rất nhiều trường hợp SP đợi cho tới khi nào người dùng chuyển coin vào ví của SP nhiều nhiều. Sau đấy, SP đánh sập dịch vụ và cướp toàn bộ số coin. Người dùng cũng không thể nào lần lại được SP để đòi.</p>
-<ol>
-<li>Liên bang công chứng (Multi-signature Federation)<br>Đây là một cách đem lại sự phi tập trung hóa cho <strong>Custodian Bridges</strong>. </li>
-</ol>
+<h3 id="Lien-bang-cong-chung-Multi-signature-Federation"><a href="#Lien-bang-cong-chung-Multi-signature-Federation" class="headerlink" title="Liên bang công chứng (Multi-signature Federation)"></a>Liên bang công chứng (Multi-signature Federation)</h3><p>Đây là một cách đem lại sự phi tập trung hóa cho <strong>Custodian Bridges</strong>. </p>
 <p>Một liên bang những người công chứng sẽ đồng thuận liệu có <strong>bất động</strong> hoặc <strong>kích hoạt</strong> coin. Những người này sẽ giám sát nếu có điều gì bất thường xảy ra. </p>
 <p>Một số SP còn cho phép bất cứ ai cũng có thể tham gia vào liên bang công chứng này nếu người đó thỏa mãn một số điều kiện nhất định.</p>
 <h2 id="Relay-Solutions"><a href="#Relay-Solutions" class="headerlink" title="Relay Solutions"></a>Relay Solutions</h2><p>Cách này quá phức tạp để giải thích ngắn gọn trong bài này nên mình sẽ để ở bài khác. Mọi người có thể tìm bài tiếng anh gốc để đọc sơ qua ở phần “Bài viết tham khảo”.</p>
@@ -386,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chi-muc"><span class="nav-number">1.</span> <span class="nav-text">Chỉ mục</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-He-kin-block-chain"><span class="nav-number">2.</span> <span class="nav-text">I. Hệ kín block chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#II-Cac-phuong-thuc-giao-dich-giua-hai-chain-khac-nhau"><span class="nav-number">3.</span> <span class="nav-text">II. Các phương thức giao dịch giữa hai chain khác nhau</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Atomic-Swaps"><span class="nav-number">3.1.</span> <span class="nav-text">Atomic Swaps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts"><span class="nav-number">3.1.1.</span> <span class="nav-text">Warning (Brain f*ck): technical side for geeks and enthusiasts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y"><span class="nav-number">3.1.2.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Portable-Assets"><span class="nav-number">3.2.</span> <span class="nav-text">Portable Assets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Custodian-Bridges"><span class="nav-number">3.3.</span> <span class="nav-text">Custodian Bridges</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relay-Solutions"><span class="nav-number">3.4.</span> <span class="nav-text">Relay Solutions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#III-Bai-viet-tham-khao"><span class="nav-number">4.</span> <span class="nav-text">III. Bài viết tham khảo</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chi-muc"><span class="nav-number">1.</span> <span class="nav-text">Chỉ mục</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-He-kin-block-chain"><span class="nav-number">2.</span> <span class="nav-text">I. Hệ kín block chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#II-Cac-phuong-thuc-giao-dich-giua-hai-chain-khac-nhau"><span class="nav-number">3.</span> <span class="nav-text">II. Các phương thức giao dịch giữa hai chain khác nhau</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Atomic-Swaps"><span class="nav-number">3.1.</span> <span class="nav-text">Atomic Swaps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts"><span class="nav-number">3.1.1.</span> <span class="nav-text">Warning (Brain f*ck): technical side for geeks and enthusiasts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y"><span class="nav-number">3.1.2.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Portable-Assets"><span class="nav-number">3.2.</span> <span class="nav-text">Portable Assets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Custodian-Bridges"><span class="nav-number">3.3.</span> <span class="nav-text">Custodian Bridges</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">Lưu ý:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lien-bang-cong-chung-Multi-signature-Federation"><span class="nav-number">3.3.2.</span> <span class="nav-text">Liên bang công chứng (Multi-signature Federation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relay-Solutions"><span class="nav-number">3.4.</span> <span class="nav-text">Relay Solutions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#III-Bai-viet-tham-khao"><span class="nav-number">4.</span> <span class="nav-text">III. Bài viết tham khảo</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
