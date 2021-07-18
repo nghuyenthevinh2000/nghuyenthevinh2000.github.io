@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nghuyenthevinh2000.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Blog &lt;3.5.1&gt;: Phần 1: Giao dịch giữa hai đồng block chain">
+<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/index.html">
+<meta property="og:site_name" content="VN_TECH">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/InterBlockchain.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/AtomicSwap.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/PortableAssets.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/CustodianBridges.png">
+<meta property="article:published_time" content="2021-07-16T01:44:10.000Z">
+<meta property="article:modified_time" content="2021-07-18T02:48:11.526Z">
+<meta property="article:author" content="Nguyễn Thế Vinh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/InterBlockchain.png">
+
+<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'vi'
+  };
+</script>
+
+  <title>Blog <3.5.1>: Phần 1: Giao dịch giữa hai đồng block chain | VN_TECH</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Thanh điều hướng chuyển đổi">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">VN_TECH</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Trang Chủ</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Lưu Trữ</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="vi">
+    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nguyễn Thế Vinh">
+      <meta itemprop="description" content="Công nghệ là "hơi thở"">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="VN_TECH">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Blog <3.5.1>: Phần 1: Giao dịch giữa hai đồng block chain
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Tạo lúc</span>
+
+              <time title="Được tạo: 2021-07-16 08:44:10" itemprop="dateCreated datePublished" datetime="2021-07-16T08:44:10+07:00">2021-07-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Chỉnh sửa vào</span>
+                <time title="Được thay đổi: 2021-07-18 09:48:11" itemprop="dateModified" datetime="2021-07-18T09:48:11+07:00">2021-07-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body><p>“Tôi muốn trao đổi đồng ETH với đồng Bitcoin” </p>
+<p>Giờ đây, khao khát trao đổi, giao dịch giữa các đồng điện tử đang trở nên lớn hơn bao giờ hết. Càng ngày càng nhiều người tìm kiếm cách để giao dịch giữa các đồng điện tử với nhau. Đây là xu thế của tương lai. Giống như việc trao đổi đồng Đô-la với Việt Nam đồng để dễ dàng giao dịch, các đồng điện tử cũng sẽ hướng tới điều tương tự như vậy.</p>
+<p>Tuy nhiên, đây lại là một hoạt động tiềm ẩn rủi ro an toàn. Có rất nhiều phương thức đổi đồng điện tử. Việc hiểu rõ các phương thức sẽ giúp bạn lựa chọn phương thức tốt nhất và ít rủi ro nhất.</p>
+<p>Thật đáng tiếc cho bạn, giao dịch trên là không thể thực hiện được một cách đơn giản kiểu:</p>
+<ul>
+<li>“Ây, cho tôi mua xúc xích”. A đưa 10000 đồng cho B.</li>
+<li>“Xúc xích của bác đây”. B đưa xúc xích cho A.</li>
+</ul>
+<p>Giao dịch trên hai hệ block chain phức tạp hơn VD trên nhiều.<br>Tại vì sao lại như vậy? </p>
+<p>Bài này sẽ mô tả rõ ràng và các phương thức giao dịch giữa hai chain khác nhau.</p>
+<h1 id="Chi-muc"><a href="#Chi-muc" class="headerlink" title="Chỉ mục"></a>Chỉ mục</h1><ol>
+<li>Hệ block chain kín</li>
+<li>Các phương thức giao dịch giữa hai chain kín khác nhau<ul>
+<li>Atomic Swaps</li>
+<li>Portable Assets</li>
+<li>Custodian Bridges</li>
+<li>Relay Solutions</li>
+</ul>
+</li>
+<li>Hệ block chain mở (phần 2)</li>
+<li>Bài viết tham khảo</li>
+</ol>
+<h1 id="I-He-kin-block-chain"><a href="#I-He-kin-block-chain" class="headerlink" title="I. Hệ kín block chain"></a>I. Hệ kín block chain</h1><p>Đây là một hình ảnh về hệ kín của block chain:</p>
+<p><img src="/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/InterBlockchain.png" alt="block_chain"></p>
+<p>Một hệ thống block chain đặt bảo mật lên hàng đầu. Do đó, việc giao tiếp giữa các hệ thống block chain là KHÔNG TỒN TẠI.</p>
+<p>Không thể nào giao dịch 5 eth với 10 bitcoin theo cách thông thường. </p>
+<p>Tuy nhiên, mọi thứ đều có cách. Có những cách để giao dịch 5 eth và 10 bitcoin. Những cách này luôn tiềm ẩn các nguy cơ bảo mật lớn. Người sở hữu ví điện tử cần phải thận trọng khi <strong>lựa chọn cách thức</strong> và <strong>đơn vị cung cấp dịch vụ</strong>.</p>
+<h1 id="II-Cac-phuong-thuc-giao-dich-giua-hai-chain-khac-nhau"><a href="#II-Cac-phuong-thuc-giao-dich-giua-hai-chain-khac-nhau" class="headerlink" title="II. Các phương thức giao dịch giữa hai chain khác nhau"></a>II. Các phương thức giao dịch giữa hai chain khác nhau</h1><p>Các <strong>đơn vị cung cấp dịch vụ</strong> giao dịch giữa hai đồng block chain hiện nay có khá ít nhưng đang mở rộng mạnh mẽ. Đa phần các <strong>đơn vị cung cấp dịch vụ</strong> này đều ở nước ngoài, có khá ít đơn vị ở Việt Nam.</p>
+<h2 id="Atomic-Swaps"><a href="#Atomic-Swaps" class="headerlink" title="Atomic Swaps"></a>Atomic Swaps</h2><p><img src="/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/AtomicSwap.png" alt="AtomicSwap"></p>
+<p>Giả sử A có 5 đồng đô-la, B có 1 xúc xích. A không tin B và B không tin A. A muốn mua xúc xích của B. Nếu như A đưa 5 đô-la cho B, B lại chạy mất thì chết dở A. Nếu như B đưa xúc xích cho A, A lại chạy mất thì B cũng chết dở. Vậy thì phải làm sao? </p>
+<p>Hoặc là:</p>
+<ul>
+<li>Cả A và B đều đưa xúc xích và tiền cùng một lúc.</li>
+<li>Cả A và B đều không đưa tiền và xúc xích.</li>
+</ul>
+<p>Giả thuyết trên chính là cái sinh ra Atomic Swaps. Trong đó, một cơ chế Atomic Swaps sẽ được kích hoạt để đảm bảo A và B đều đưa coin cùng một lúc.</p>
+<p>Cách này vẫn chỉ có hai người là A và B nên có thể nói là cách giao dịch cần ít sự tin tưởng nhất.</p>
+<h3 id="Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts"><a href="#Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts" class="headerlink" title="Warning (Brain f*ck): technical side for geeks and enthusiasts"></a>Warning (Brain f*ck): technical side for geeks and enthusiasts</h3><p>Well, you have been warned :D<br>Phần này sẽ giải thích về hoạt động của cơ chế Atomic Swaps</p>
+<ol>
+<li><strong>Hash-locks</strong>:</li>
+</ol>
+<ul>
+<li><strong>Hash function</strong>: cơ chế này sử dụng hash function.<br>Định nghĩa H(x) là hash function. x là bản rõ. y là bản mật. H(x) = y. </li>
+</ul>
+<p>Hàm hash function có tính chất là 1 chiều x -&gt; y. Do đó, kẻ tấn công kể cả có nắm được giá trị y cũng không thể nào tìm được giá trị x. </p>
+<p>Chỉ cần thay đổi tí tẹo x thôi là y cũng sẽ thay đổi rất nhiều.</p>
+<p>VD: </p>
+<ul>
+<li>H(“Hello the world”) = j123J498sDfljHUYTd84j.</li>
+<li>H(“Hello theworld”) = lkJAsd9fQJ23afsfLK1j298asf. </li>
+</ul>
+<ul>
+<li><strong>Smart Contract</strong>: cơ chế này sử dụng smart contract.<br>Smart Contract là một sản phẩm của sàn Etherum. Nó là một hợp đồng chứa các functions và được bảo đảm thi hành bởi Etherum hoặc một vài bên khác. </li>
+</ul>
+<p>‘’’<br>interface SendCoin{<br>  function sendMoney(uint coin_amount, address receiver) external returns(bool);<br>}</p>
+<p>contract TransferCoin is SendCoin{<br>  function sendMoney(uint coin_amout, address receiver) external returns(bool) {<br>    …<br>  }<br>}<br>‘’’</p>
+<ul>
+<li><strong>Cơ chế hoạt động</strong>:<br>Gọi Encoding(x, k) là E(x, k) với x là bản rõ, k là khóa.<br>Gọi Decoding(x, k) là D(x, k) với x là bản mã, k là khóa.</li>
+</ul>
+<p>A gửi cho B 5 đô la thông qua một smart contract Sa.</p>
+<p>Smart contract Sa sẽ bị khóa bởi mật khẩu k: E(Sa, k). A biết k.</p>
+<p>Mã băm H(k) được tính toán và để public. A và B đều biết H(k).</p>
+<p>B gửi cho A xúc xích thông qua một smart contract Sb. </p>
+<p>Smart Contract Sb sẽ bị khóa bởi mật khẩu H(k): E(Sb, H(k)). B biết H(k).</p>
+<p>Lúc này, <strong>tình hình sẽ như sau</strong>: </p>
+<hr>
+<p>| E(Sb, H(k)), E(Sa, k)   –&gt; out<br>|<strong><strong><strong><strong><strong>____</strong></strong></strong></strong></strong></p>
+<p>A không thể lấy được Sb tại vì Sb đang bị chặn bởi Sa.<br>B không thể lấy được Sa tại vì B không biết k.</p>
+<p>Khi A kiểm tra thấy B gửi đúng là xúc xích, A sẽ gửi k cho B. </p>
+<p>B sẽ thu và mở khóa E(Sa,k): D(E(Sa,k),k) = Sa và lấy được 5 đô la.</p>
+<p>A sẽ thu và mở khóa E(Sb, H(k)): D(E(Sb, H(k)), H(k)) = Sb và lấy được xúc xích.</p>
+<p>A và B đều vui vẻ.</p>
+<ol>
+<li><strong>Timeouts</strong>:<br>Vẫn giả sử ở trên, nếu như A quyết định không bao giờ đưa khóa k cho B. Giao dịch sẽ bị khóa mãi mãi. Cho nên, giá trị timeout được thêm vào để nếu quá thời gian này, giao dịch sẽ bị hủy và hoàn trả tiền cho A và B. </li>
+</ol>
+<h3 id="Luu-y"><a href="#Luu-y" class="headerlink" title="Lưu ý:"></a>Lưu ý:</h3><p>Nếu như A quyết định chờ cho gần hết timeout mới đưa khóa cho B, A nếu nhanh tay có thể mở khóa giao dịch trước khi B kịp mở. Timeout diễn ra, Sa bị hoàn trả. A giờ có cả 5 đô la và xúc xích trong tay. B không được gì. </p>
+<p>Tình huống này hơi cục súc nhưng hoàn toàn có thể nếu như A nhanh tay hơn timeout và B chậm tay hơn timeout.</p>
+<h2 id="Portable-Assets"><a href="#Portable-Assets" class="headerlink" title="Portable Assets"></a>Portable Assets</h2><p><img src="/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/PortableAssets.png" alt="PortableAssets"></p>
+<p>Giả sử A có hai ví điện tử trên bitcoin(btc) (Ví Wbtc) và etherum(eth) (Ví Weth). A muốn mua xúc xích bằng eth. A sẽ phải chuyển btc sang eth. </p>
+<p>1 BTC bằng 16.78422430 ETH.</p>
+<p>Sau đấy là cơ chế hoạt động:</p>
+<ol>
+<li>1 BTC trên ví Wbtc sẽ bị <strong>hủy</strong> (burn BTC) hoặc bị làm <strong>bất động</strong>:</li>
+</ol>
+<ul>
+<li><strong>hủy</strong>: đưa 1 BTC về ví mà không ai biết mật khẩu. (Ví có địa chỉ 0 đối với ETH)</li>
+<li><strong>bất động</strong>: mình cũng không rõ lắm về cái này, mà chắc là sẽ đưa vào <strong>ví đặc biệt</strong>. <strong>Ví đặc biệt</strong> này sẽ không bao giờ đưa BTC trở lại market cho tới khi có lệnh <strong>kích hoạt</strong>.</li>
+</ul>
+<ol start="2">
+<li>16.7 ETH sẽ được <strong>đào</strong> (mint ETH) hoặc được <strong>kích hoạt</strong> để đưa vào ví Weth:</li>
+</ol>
+<ul>
+<li><strong>đào</strong>: tạo thêm coin mới</li>
+<li><strong>kích hoạt</strong>: đưa ETH từ <strong>ví đặc biệt</strong> vào ví Weth của A.</li>
+</ul>
+<h3 id="Luu-y-1"><a href="#Luu-y-1" class="headerlink" title="Lưu ý:"></a>Lưu ý:</h3><p>Một sai lầm trong tính toán, một bit dữ liệu bị nhảy cũng có thể khiến cho con số sai lệch. Tình huống có thể trở thành:<br><strong>bất động</strong> 1 BTC ở ví Wbtc –&gt; <strong>kích hoạt</strong> 16 ETH ở ví Weth.<br>Như vậy, người dùng đã mất 0.7 ETH.</p>
+<p>Mặc dù tình huống trên có xác suất xảy ra rất thấp nhưng quan trọng là nó vẫn tồn tại. </p>
+<p>Đây là những vấn đề nằm ngoài tầm kiểm soát của người dùng. Người dùng không thể làm gì ngoài tin tưởng rằng hệ thống sẽ hoạt động tốt. </p>
+<h2 id="Custodian-Bridges"><a href="#Custodian-Bridges" class="headerlink" title="Custodian Bridges"></a>Custodian Bridges</h2><p><img src="/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/CustodianBridges.png" alt="CustodianBridges"></p>
+<p>Ở trong trường hợp của <strong>Atomic Swaps</strong>, trao đổi coin trên hai chain khác nhau yêu cầu người dùng tin tưởng rằng: <strong>“Giao dịch diễn ra cùng một lúc”</strong>. </p>
+<p>Ở trong trường hợp của <strong>Portable Assets</strong>, cả hai hệ block chain BTC và ETH cần tin tưởng được rằng: <strong>“1 tài khoản sẽ giảm đúng 1 BTC trên chain BTC và tăng đúng 16.7 ETH trên chain ETH”</strong>. </p>
+<p>Cả hai yêu cầu tin tưởng trên có thể được cung cấp bởi phương thức <strong>Custodian Bridges</strong> với cái giá là: <strong>“người dùng phải tin tưởng bên cung cấp dịch vụ”</strong>.</p>
+<p>Giả sử A có hai ví điện tử trên bitcoin(btc) (Ví Wbtc) và etherum(eth) (Ví Weth). A muốn chuyển BTC sang ETH. A sẽ đưa 1 BTC cho nhà cung cấp dịch vụ (Service Provider) (SP). SP sau đấy sẽ <strong>ĐẢM BẢO bất động</strong> 1 BTC đó, <strong>ĐẢM BẢO kích hoạt</strong> 16.7 ETH. Tiếp đó, SP sẽ đưa 16.7 ETH đó cho A. </p>
+<p>Hai cách <strong>Atomic Swaps</strong> và <strong>Portable Assets</strong> là hai cách phi tập trung. Cách <strong>Custodian Bridges</strong> là cách tập trung. </p>
+<h3 id="Luu-y-2"><a href="#Luu-y-2" class="headerlink" title="Lưu ý:"></a>Lưu ý:</h3><p>Có rất nhiều trường hợp SP đợi cho tới khi nào người dùng chuyển coin vào ví của SP nhiều nhiều. Sau đấy, SP đánh sập dịch vụ và cướp toàn bộ số coin. Người dùng cũng không thể nào lần lại được SP để đòi.</p>
+<ol>
+<li>Liên bang công chứng (Multi-signature Federation)<br>Đây là một cách đem lại sự phi tập trung hóa cho <strong>Custodian Bridges</strong>. </li>
+</ol>
+<p>Một liên bang những người công chứng sẽ đồng thuận liệu có <strong>bất động</strong> hoặc <strong>kích hoạt</strong> coin. Những người này sẽ giám sát nếu có điều gì bất thường xảy ra. </p>
+<p>Một số SP còn cho phép bất cứ ai cũng có thể tham gia vào liên bang công chứng này nếu người đó thỏa mãn một số điều kiện nhất định.</p>
+<h2 id="Relay-Solutions"><a href="#Relay-Solutions" class="headerlink" title="Relay Solutions"></a>Relay Solutions</h2><p>Cách này quá phức tạp để giải thích ngắn gọn trong bài này nên mình sẽ để ở bài khác. Mọi người có thể tìm bài tiếng anh gốc để đọc sơ qua ở phần “Bài viết tham khảo”.</p>
+<h1 id="III-Bai-viet-tham-khao"><a href="#III-Bai-viet-tham-khao" class="headerlink" title="III. Bài viết tham khảo"></a>III. Bài viết tham khảo</h1><p><a target="_blank" rel="noopener" href="https://medium.com/cryptronics/blockchain-interoperability-moving-assets-across-chains-e5203357d949">link1</a></p>
+</body></html>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/16/3-4-Tai-sao-lai-can-Proof-of-Stake/" rel="prev" title="Blog <3.4>: Tai sao lai can Proof of Stake">
+      <i class="fa fa-chevron-left"></i> Blog <3.4>: Tai sao lai can Proof of Stake
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Mục Lục
+        </li>
+        <li class="sidebar-nav-overview">
+          Tổng Quan
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chi-muc"><span class="nav-number">1.</span> <span class="nav-text">Chỉ mục</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-He-kin-block-chain"><span class="nav-number">2.</span> <span class="nav-text">I. Hệ kín block chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#II-Cac-phuong-thuc-giao-dich-giua-hai-chain-khac-nhau"><span class="nav-number">3.</span> <span class="nav-text">II. Các phương thức giao dịch giữa hai chain khác nhau</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Atomic-Swaps"><span class="nav-number">3.1.</span> <span class="nav-text">Atomic Swaps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Warning-Brain-f-ck-technical-side-for-geeks-and-enthusiasts"><span class="nav-number">3.1.1.</span> <span class="nav-text">Warning (Brain f*ck): technical side for geeks and enthusiasts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y"><span class="nav-number">3.1.2.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Portable-Assets"><span class="nav-number">3.2.</span> <span class="nav-text">Portable Assets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Custodian-Bridges"><span class="nav-number">3.3.</span> <span class="nav-text">Custodian Bridges</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Luu-y-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">Lưu ý:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relay-Solutions"><span class="nav-number">3.4.</span> <span class="nav-text">Relay Solutions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#III-Bai-viet-tham-khao"><span class="nav-number">4.</span> <span class="nav-text">III. Bài viết tham khảo</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nguyễn Thế Vinh</p>
+  <div class="site-description" itemprop="description">Công nghệ là "hơi thở"</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">bài viết</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nguyễn Thế Vinh</span>
+</div>
+  <div class="powered-by">Cung cấp bởi <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
