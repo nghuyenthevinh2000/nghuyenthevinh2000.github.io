@@ -21,16 +21,18 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Blog &lt;3.1&gt;: Cơ bản của block chain">
-<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/06/12/basic-of-block-chain/index.html">
+<meta property="og:title" content="Blog &lt;3.1&gt;: Giải phẫu block chain">
+<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2021/08/22/3-1-Block-chain-overview/index.html">
 <meta property="og:site_name" content="VN_TECH">
 <meta property="og:locale" content="vi_VN">
-<meta property="article:published_time" content="2020-06-12T13:28:00.000Z">
-<meta property="article:modified_time" content="2021-06-12T13:28:52.476Z">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/08/22/3-1-Block-chain-overview/blockchain_anatomy.png">
+<meta property="article:published_time" content="2021-08-21T17:25:29.000Z">
+<meta property="article:modified_time" content="2021-08-21T18:30:55.228Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2021/08/22/3-1-Block-chain-overview/blockchain_anatomy.png">
 
-<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/06/12/basic-of-block-chain/">
+<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2021/08/22/3-1-Block-chain-overview/">
 
 
 <script id="page-configurations">
@@ -43,7 +45,7 @@
   };
 </script>
 
-  <title>Blog <3.1>: Cơ bản của block chain | VN_TECH</title>
+  <title>Blog <3.1>: Giải phẫu block chain | VN_TECH</title>
   
 
 
@@ -148,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="vi">
-    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2020/06/12/basic-of-block-chain/">
+    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2021/08/22/3-1-Block-chain-overview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Blog <3.1>: Cơ bản của block chain
+          Blog <3.1>: Giải phẫu block chain
         </h1>
 
         <div class="post-meta">
@@ -170,16 +172,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Tạo lúc</span>
+              
 
-              <time title="Được tạo: 2020-06-12 20:28:00" itemprop="dateCreated datePublished" datetime="2020-06-12T20:28:00+07:00">2020-06-12</time>
+              <time title="Được tạo: 2021-08-22 00:25:29 / Được thay đổi: 01:30:55" itemprop="dateCreated datePublished" datetime="2021-08-22T00:25:29+07:00">2021-08-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2021-06-12 20:28:52" itemprop="dateModified" datetime="2021-06-12T20:28:52+07:00">2021-06-12</time>
-              </span>
 
           
 
@@ -192,42 +188,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><h1 id="Co-ban-ve-blockchain"><a href="#Co-ban-ve-blockchain" class="headerlink" title="Cơ bản về blockchain"></a>Cơ bản về blockchain</h1><p>Các khái niệm cơ bản cần biết để hiểu về blockchain</p>
-<p><strong>Lưu ý</strong> : tài liệu này được viết theo ý hiểu của tôi, có thể có sai sót nhưng sẽ dễ hiểu hơn mấy cái viết trên mạng</p>
-<h2 id="Co-so-du-lieu"><a href="#Co-so-du-lieu" class="headerlink" title="Cơ sở dữ liệu"></a>Cơ sở dữ liệu</h2><p>Là kho dữ liệu được lưu trữ trên phần cứng máy tính</p>
-<p>VD : 1 file excel có đầy đủ tên cột và tên hàng cũng được tính là 1 cơ sở dữ liệu</p>
-<h2 id="Quan-ly-co-so-du-lieu"><a href="#Quan-ly-co-so-du-lieu" class="headerlink" title="Quản lý cơ sở dữ liệu"></a>Quản lý cơ sở dữ liệu</h2><p>Hiểu đơn giản là quản lý + cơ sở dữ liệu, bao gồm các thao tác với dữ liệu như thêm dữ liệu, lấy dữ liệu,…. dưới dạng 1 truy vấn</p>
-<p>Truy vấn là lệnh thao tác trên dữ liệu viết dưới dạng ngôn ngữ truy vấn </p>
-<p>VD về truy vấn :<br>Ta có 1 bảng tên là HS chứa thông tin về các học sinh ( tên, mã số )<br>Để lấy dữ liệu về học sinh Mai Gia Long,<br>ta dùng truy vấn bằng ngôn ngữ sql : select * from HS where tên = Mai Gia Long </p>
-<h2 id="Block-chain"><a href="#Block-chain" class="headerlink" title="Block chain"></a>Block chain</h2><p>Block chain là 1 chuỗi các hộp dữ liệu nối đuôi nhau, 1 hộp dữ liệu thường chứa các dữ liệu về giao dịch, tài khoản crypto, tuy nhiên nó có thể chứa các dữ liệu khác bất kỳ, việc nó chứa loại dữ liệu nào tùy thuộc vào từng blockchain </p>
-<p>Blockchain có thể được hiểu là cơ sở dữ liệu</p>
-<p>Có thể được gọi là cơ sở dữ liệu blockchain để phân biệt với cơ sở dữ liệu non-blockchain</p>
-<p>VD: </p>
-<ul>
-<li>block chain của bitcoin chỉ chứa các giao dịch</li>
-<li>blockchain của ether chứa các giao dịch, tài khoản crypto, và cả code ( mã chương trình)</li>
-</ul>
-<p>Blockchain còn được hiểu là công nghệ blockchain, một công nghệ về quản lý (lưu trữ, truy vấn, thêm dữ liệu) cơ sở dữ liệu phân tán, tuy nhiên trong bài viết này, ta sẽ hiểu blockchain theo nghĩa bên trên</p>
-<h2 id="Phan-tan-Decentralization"><a href="#Phan-tan-Decentralization" class="headerlink" title="Phân tán ( Decentralization )"></a>Phân tán ( Decentralization )</h2><p>Hiểu đơn giản là sự phân tán về địa lý, tài nguyên, quyền lực </p>
-<h2 id="Mang-block-chain"><a href="#Mang-block-chain" class="headerlink" title="Mạng block chain"></a>Mạng block chain</h2><p>Là một mạng lưới các cục máy tính, mỗi cục máy tính khác nhau thuộc sở hữu của một thực thể (người hoặc công ty) khác nhau, các máy tính này sẽ cùng tham gia quản lý  (lưu trữ, truy vấn, thêm dữ liệu) 1 blockchain </p>
-<p>Mạng này có tính chất:</p>
-<ul>
-<li>phân tán về địa lý ( mỗi máy tính nằm ở một nơi khác nhau )</li>
-<li>phân tán về tài nguyên ( mỗi thực thể sở hữu một máy tính )</li>
-<li>phân tán về quyền lực ( không ai có thể tự mình thay đổi block chain, phải có sự đồng thuận của mọi người )</li>
-</ul>
-<h2 id="Cong-nghe-blockchain"><a href="#Cong-nghe-blockchain" class="headerlink" title="Công nghệ blockchain"></a>Công nghệ blockchain</h2><p>Là công nghệ sử dụng mạng blockchain để quản lý blockchain </p>
-<p>Đây chính là điểm khác biệt giữa công nghệ blockchain và các công nghệ quản lý cơ sở dữ liệu non-blockchain</p>
-<p>Cơ sở dữ liệu non-blockchain sẽ được quản lý bằng các máy tính thuộc cùng 1 chủ sở hữu </p>
-<p>VD về cơ sở dữ liệu non-blockchain:<br>Một ngân hàng sẽ quản lý cơ sở dữ liệu non-blockchain chứa tài khoản của khách hàng, họ hoàn toàn có thể sửa tài khoản của khách hàng mà chưa được sự cho phép. Không có sự phân tán về tài nguyên và quyền lực vì tất cả tài nguyên đều do 1 thực thể ( ngân hàng ) nắm giữ và một mình ngân hàng có thể thay đổi dữ liệu của cơ sở dữ liệu</p>
-<p>Ưu điểm của công nghệ blockchain:</p>
-<ul>
-<li>Lưu trữ tin cậy</li>
-<li>Trong suốt </li>
-<li>Phân tán quyền lực </li>
-<li>Bảo mật cao</li>
-</ul>
-<p>Tại sao blockchain lại có những ưu điểm này ? Hãy tự tìm câu trả lời</p>
+        <html><head></head><body><p>Chỉ trong một khoảng thời gian ngắn trong năm 2021, thế giới đã chứng kiến sự bùng nổ của bit coin và sự chấp nhận rộng rãi của tiền điện tử. Lịch sử rẽ nhánh từ đây. Quyết định nằm ngoài hay tham gia lịch sử là ở bạn.</p>
+<p>Tôi tham gia nhằm tạo ra một sản phẩm đột phá, một start - up công nghệ thành công.</p>
+<p>Lịch sử và cơ bản của block chain được rất nhiều bài viết ở trên mạng. Do đó, trong bài này, tôi chỉ đề cập tới tầm nhìn bao quát các thành phần trong block chain. </p>
+<p>Đây cũng sẽ là nền móng cho các bài mở rộng sau này.</p>
+<p><img src="/2021/08/22/3-1-Block-chain-overview/blockchain_anatomy.png" alt="blockchain_anatomy"></p>
+<h1 id="I-Chi-muc"><a href="#I-Chi-muc" class="headerlink" title="I. Chỉ mục"></a>I. Chỉ mục</h1><ol>
+<li>Node</li>
+<li>Sổ cái (Distributed Ledger)</li>
+<li>Bộ xử lý</li>
+<li>Cryptoeconomics </li>
+<li>Tìm hiểu thêm</li>
+</ol>
+<h1 id="II-Node"><a href="#II-Node" class="headerlink" title="II. Node"></a>II. Node</h1><p>Node là một nút trong mạng block chain. Trong series bài này, tôi sẽ coi Node là một cô kế toán kỹ tính, thích nói to và cực kỳ hung hăng.</p>
+<p>Mỗi người kế toán có một phiên bản sổ cái của riêng họ.</p>
+<p>Bạn hãy tưởng tượng block chain là một công ty chỉ gồm những cô kế toán như vậy. Kế toán A có nhiệm vụ:</p>
+<ol>
+<li>Hung hăng gom nhóm các giao dịch và mang về bàn làm việc. </li>
+<li>Xem xét một giao dịch có hợp lệ.</li>
+<li>Nếu như giao dịch hợp lệ thì ghi vào sổ cái A. Lúc đó, sổ cái A sẽ là mới nhất.</li>
+<li>Hét thật to để những cô kế toán B, C ngồi cạnh nghe thấy và cập nhật sổ cái B, C tương ứng.</li>
+</ol>
+<p>Nếu như bạn trở thành một node trong một mạng block chain. Bạn sẽ nhận được phần thưởng cho mỗi giao dịch được xác thực thành công.</p>
+<h1 id="III-So-cai-Distributed-Ledger"><a href="#III-So-cai-Distributed-Ledger" class="headerlink" title="III. Sổ cái (Distributed Ledger)"></a>III. Sổ cái (Distributed Ledger)</h1><p>Sổ cái là nơi ghi lại mọi giao dịch. Sổ cái rất khó để có thể sửa đổi được. </p>
+<h1 id="IV-Bo-xu-ly"><a href="#IV-Bo-xu-ly" class="headerlink" title="IV. Bộ xử lý"></a>IV. Bộ xử lý</h1><p>Đây là nơi mọi hoạt động diễn ra nhằm đảm bảo một Node hoàn thành đủ 4 nhiệm vụ cơ bản trên:</p>
+<ol>
+<li>Gom nhóm giao dịch</li>
+<li>Xác thực giao dịch (Validation)</li>
+<li>Cập nhật sổ cái</li>
+<li>Quảng bá giao dịch tới mọi node lân cận</li>
+</ol>
+<h1 id="V-Cryptoeconomics"><a href="#V-Cryptoeconomics" class="headerlink" title="V. Cryptoeconomics"></a>V. Cryptoeconomics</h1><p>Các lực lượng kinh tế tác động tới block chain. Đây là động lực phát triển lớn mạnh của crypto currency.</p>
+<h1 id="VI-Tim-hieu-them"><a href="#VI-Tim-hieu-them" class="headerlink" title="VI. Tìm hiểu thêm"></a>VI. Tìm hiểu thêm</h1><p>Những trang sau có thể giúp bạn bắt đầu trên con đường block chain:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://academy.binance.com/vi">https://academy.binance.com/vi</a></li>
+<li><a target="_blank" rel="noopener" href="https://cryptozombies.io/">https://cryptozombies.io/</a></li>
+</ol>
 </body></html>
     </div>
 
@@ -242,11 +238,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/08/10/Welcome/" rel="next" title="Blog <1>: Mặt trời mọc ở xứ sở NLP">
-      Blog <1>: Mặt trời mọc ở xứ sở NLP <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/16/Blog-3-5-Giao-dich-giua-hai-block-chain/" rel="prev" title="Blog <3.5.1>: Phần 1: Giao dịch giữa hai đồng block chain">
+      <i class="fa fa-chevron-left"></i> Blog <3.5.1>: Phần 1: Giao dịch giữa hai đồng block chain
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -305,7 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Co-ban-ve-blockchain"><span class="nav-number">1.</span> <span class="nav-text">Cơ bản về blockchain</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Co-so-du-lieu"><span class="nav-number">1.1.</span> <span class="nav-text">Cơ sở dữ liệu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quan-ly-co-so-du-lieu"><span class="nav-number">1.2.</span> <span class="nav-text">Quản lý cơ sở dữ liệu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-chain"><span class="nav-number">1.3.</span> <span class="nav-text">Block chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phan-tan-Decentralization"><span class="nav-number">1.4.</span> <span class="nav-text">Phân tán ( Decentralization )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mang-block-chain"><span class="nav-number">1.5.</span> <span class="nav-text">Mạng block chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cong-nghe-blockchain"><span class="nav-number">1.6.</span> <span class="nav-text">Công nghệ blockchain</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#I-Chi-muc"><span class="nav-number">1.</span> <span class="nav-text">I. Chỉ mục</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#II-Node"><span class="nav-number">2.</span> <span class="nav-text">II. Node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#III-So-cai-Distributed-Ledger"><span class="nav-number">3.</span> <span class="nav-text">III. Sổ cái (Distributed Ledger)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IV-Bo-xu-ly"><span class="nav-number">4.</span> <span class="nav-text">IV. Bộ xử lý</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#V-Cryptoeconomics"><span class="nav-number">5.</span> <span class="nav-text">V. Cryptoeconomics</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VI-Tim-hieu-them"><span class="nav-number">6.</span> <span class="nav-text">VI. Tìm hiểu thêm</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
