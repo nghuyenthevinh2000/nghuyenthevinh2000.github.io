@@ -21,16 +21,21 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="Blog &lt;2.2&gt;: Biểu diễn từ ngữ (Text Representation)">
-<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-2/index.html">
+<meta property="og:title" content="Blog &lt;4.2&gt;: Cosmos SDK Anatomy">
+<meta property="og:url" content="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/index.html">
 <meta property="og:site_name" content="VN_TECH">
 <meta property="og:locale" content="vi_VN">
-<meta property="article:published_time" content="2020-08-23T10:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-06T03:56:20.042Z">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_Anatomy.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_SDK_Anatomy.drawio.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_SDK_Sequence_Tx.drawio.png">
+<meta property="og:image" content="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_SDK_Tx_Handler.drawio.png">
+<meta property="article:published_time" content="2021-10-08T14:51:31.000Z">
+<meta property="article:modified_time" content="2021-10-17T17:21:10.751Z">
 <meta property="article:author" content="Nguyễn Thế Vinh">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_Anatomy.png">
 
-<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-2/">
+<link rel="canonical" href="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/">
 
 
 <script id="page-configurations">
@@ -43,7 +48,7 @@
   };
 </script>
 
-  <title>Blog <2.2>: Biểu diễn từ ngữ (Text Representation) | VN_TECH</title>
+  <title>Blog <4.2>: Cosmos SDK Anatomy | VN_TECH</title>
   
 
 
@@ -148,7 +153,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="vi">
-    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2020/08/23/text-representation-2/">
+    <link itemprop="mainEntityOfPage" href="https://nghuyenthevinh2000.github.io/2021/10/08/4-2-Cosmos-SDK-Anatomy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +166,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Blog <2.2>: Biểu diễn từ ngữ (Text Representation)
+          Blog <4.2>: Cosmos SDK Anatomy
         </h1>
 
         <div class="post-meta">
@@ -171,14 +176,14 @@
               </span>
               <span class="post-meta-item-text">Tạo lúc</span>
 
-              <time title="Được tạo: 2020-08-23 17:00:00" itemprop="dateCreated datePublished" datetime="2020-08-23T17:00:00+07:00">2020-08-23</time>
+              <time title="Được tạo: 2021-10-08 21:51:31" itemprop="dateCreated datePublished" datetime="2021-10-08T21:51:31+07:00">2021-10-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Chỉnh sửa vào</span>
-                <time title="Được thay đổi: 2020-09-06 10:56:20" itemprop="dateModified" datetime="2020-09-06T10:56:20+07:00">2020-09-06</time>
+                <time title="Được thay đổi: 2021-10-18 00:21:10" itemprop="dateModified" datetime="2021-10-18T00:21:10+07:00">2021-10-18</time>
               </span>
 
           
@@ -192,15 +197,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <html><head></head><body><h1 id="Buoc-2-Tien-xu-ly-tap-du-lieu"><a href="#Buoc-2-Tien-xu-ly-tap-du-lieu" class="headerlink" title="Bước 2: Tiền xử lý tập dữ liệu"></a>Bước 2: Tiền xử lý tập dữ liệu</h1><p>Tiền xử lý tập dữ liệu là một trong những bước quan trọng để biến dữ liệu thô thu thập ban đầu từ rất nhiều vấn đề: thiếu thông tin, sai sót thông tin, nhiều dữ liệu vớ vẩn, dạng dữ liệu khó xử lý, … về ít vấn đề: đầy đủ thông tin, lọc dữ liệu quan trọng, dữ liệu đúng dạng, …. Tập dữ liệu càng ít vấn đề thì càng giúp tạo ra model tốt.</p>
-<p>Có rất nhiều bài viết hay nói về chủ đề này trong tiếng Việt và rất chi tiết, mình sẽ liệt kê ở đây các bài bạn nên tìm tới.</p>
+        <html><head></head><body><h1 id="Tong-quan-cau-truc-cua-Cosmos-SDK"><a href="#Tong-quan-cau-truc-cua-Cosmos-SDK" class="headerlink" title="Tổng quan cấu trúc của Cosmos - SDK"></a>Tổng quan cấu trúc của Cosmos - SDK</h1><h2 id="I-Chi-muc"><a href="#I-Chi-muc" class="headerlink" title="I. Chỉ mục"></a>I. Chỉ mục</h2><ol>
+<li>Điều kiện trước khi đọc</li>
+<li>Sơ đồ tổng quát</li>
+<li>Giải thích ngắn gọn</li>
+<li>Luồng hoạt động</li>
+<li>Link đọc thêm</li>
+</ol>
+<h2 id="II-Dieu-kien-truoc-khi-doc"><a href="#II-Dieu-kien-truoc-khi-doc" class="headerlink" title="II. Điều kiện trước khi đọc"></a>II. Điều kiện trước khi đọc</h2><ol>
+<li><p>Đọc bài 1 trước đã, tôi đã thử đi tắt đón đầu và trò đấy không hiểu được cosmos đâu.</p>
+</li>
+<li><p>Hiểu sơ đồ này<br><img src="/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_Anatomy.png" alt="location"></p>
+</li>
+</ol>
+<p>Ô đỏ là vị trí của bài viết này</p>
+<h2 id="III-So-do-tong-quat"><a href="#III-So-do-tong-quat" class="headerlink" title="III. Sơ đồ tổng quát"></a>III. Sơ đồ tổng quát</h2><p><img src="/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_SDK_Anatomy.drawio.png" alt="overview"></p>
+<h2 id="IV-Giai-thich-ngan-gon"><a href="#IV-Giai-thich-ngan-gon" class="headerlink" title="IV. Giải thích ngắn gọn"></a>IV. Giải thích ngắn gọn</h2><ol>
+<li>Tendermint Core: (như giải thích ở bài trước)</li>
+</ol>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://vimentor.com/vi/lesson/tien-xu-ly-du-lieu-trong-linh-vuc-hoc-may-phan-1">Phần 1</a></li>
-<li><a target="_blank" rel="noopener" href="https://vimentor.com/vi/lesson/tien-xu-ly-du-lieu-trong-linh-vuc-hoc-may-phan-2">Phần 2</a></li>
-<li><a target="_blank" rel="noopener" href="https://vimentor.com/vi/lesson/tien-xu-ly-du-lieu-trong-linh-vuc-hoc-may-phan-3">Phần 3</a></li>
+<li>Chia sẻ các block và giao dịch giữa các nodes</li>
+<li>Thiết lập một thứ tự bất biến của các giao dịch (block chain)</li>
 </ul>
-<p>Tìm kiếm google theo các từ khóa “Tiền xử lý dữ liệu”, “Preprocessing là gì?” các bạn sẽ thấy được rất nhiều bài hay viết bằng tiếng việt.</p>
-</body></html>
+<ol start="2">
+<li>State Machine:<br>Giả sử có hai máy A và B. Nếu với A(5) = 10 thì bắt buộc B(5) = 10. Hai máy giống nhau, cùng một điều kiện cho trước phải trả về kết quả giống nhau. Đây là định nghĩa của State Machine.</li>
+</ol>
+<p>State Machine trong cosmos là một Node để xử lý giao dịch (Node là State Machine). Trong sơ đồ này chính là giải phẫu của một Node (aka Cosmos - SDK) </p>
+<ol start="3">
+<li>BaseApp là người đại diện cho Node và trong Node:</li>
+</ol>
+<ul>
+<li>thay mặt Node làm việc với Tendermint Core: trao đổi message giữa tendermint core và node. Message trao đổi sau đấy sẽ được phân rã ra và routing về từng module (tương tự cho chiều ngược lại)</li>
+<li>thay mặt Node làm việc với các thư viện khác: </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library := new Library();</span><br><span class="line">base_app := new BaseApp(library);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>thay mặt Module B làm việc với Module A: </li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a := new A();</span><br><span class="line">b := new B(a);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>tại vì sao lại có BaseApp? để tăng tối đa tính module hóa, giảm sự phụ thuộc lẫn nhau.</p>
+<ol start="4">
+<li>Module A, Module B: các thành phần xử lý logic cốt lõi của 1 Node. VD:</li>
+</ol>
+<ul>
+<li>Bank: xử lý gửi giao dịch và tra giao dịch</li>
+<li>Mint: xử lý việc mint coin</li>
+<li>và rất nhiều các module khác</li>
+</ul>
+<ol start="5">
+<li><p>KVStores: database chứa state của từng module. Là một ngăn trong Multistore.</p>
+</li>
+<li><p>Multistore: database mẹ của Node.</p>
+</li>
+<li><p>Keeper: Keeper có thể được ví như một API. Keeper chứa các hàm exposed tới public.</p>
+</li>
+<li><p>Other: các thành phần logic xử lý khác không được exposed tới public.</p>
+</li>
+</ol>
+<h2 id="V-Luong-hoat-dong"><a href="#V-Luong-hoat-dong" class="headerlink" title="V. Luồng hoạt động"></a>V. Luồng hoạt động</h2><ol>
+<li><p>Gửi giao dịch<br><img src="/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_SDK_Sequence_Tx.drawio.png" alt="send_overview"><br>Phía client sẽ dùng CLI, REST API, GRPC để tương tác với chain. Một transaction message mới sẽ được tạo như trong hình và nộp lên Tendermint Core để replicate message đó đến nhiều node khác.</p>
+</li>
+<li><p>Xử lý giao dịch<br><img src="/2021/10/08/4-2-Cosmos-SDK-Anatomy/Cosmos_SDK_Tx_Handler.drawio.png" alt="receive_message_overview"><br>Mỗi node sẽ nhận về message từ Tendermint Core và xử lý message đó.</p>
+</li>
+</ol>
+<h2 id="VI-Link-doc-them"><a href="#VI-Link-doc-them" class="headerlink" title="VI. Link đọc thêm"></a>VI. Link đọc thêm</h2></body></html>
     </div>
 
     
@@ -215,13 +277,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/10/text-representation/" rel="prev" title="Blog <2.1>: Biểu diễn từ ngữ (Text Representation)">
-      <i class="fa fa-chevron-left"></i> Blog <2.1>: Biểu diễn từ ngữ (Text Representation)
+    <a href="/2021/08/22/3-1-Block-chain-overview/" rel="prev" title="Blog <3.1>: Giải phẫu block chain">
+      <i class="fa fa-chevron-left"></i> Blog <3.1>: Giải phẫu block chain
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/23/text-representation-3/" rel="next" title="Blog <2.3>: Biểu diễn từ ngữ (Text Representation)">
-      Blog <2.3>: Biểu diễn từ ngữ (Text Representation) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -280,7 +339,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Buoc-2-Tien-xu-ly-tap-du-lieu"><span class="nav-number">1.</span> <span class="nav-text">Bước 2: Tiền xử lý tập dữ liệu</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tong-quan-cau-truc-cua-Cosmos-SDK"><span class="nav-number">1.</span> <span class="nav-text">Tổng quan cấu trúc của Cosmos - SDK</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-Chi-muc"><span class="nav-number">1.1.</span> <span class="nav-text">I. Chỉ mục</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#II-Dieu-kien-truoc-khi-doc"><span class="nav-number">1.2.</span> <span class="nav-text">II. Điều kiện trước khi đọc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#III-So-do-tong-quat"><span class="nav-number">1.3.</span> <span class="nav-text">III. Sơ đồ tổng quát</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IV-Giai-thich-ngan-gon"><span class="nav-number">1.4.</span> <span class="nav-text">IV. Giải thích ngắn gọn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V-Luong-hoat-dong"><span class="nav-number">1.5.</span> <span class="nav-text">V. Luồng hoạt động</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VI-Link-doc-them"><span class="nav-number">1.6.</span> <span class="nav-text">VI. Link đọc thêm</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
